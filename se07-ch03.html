@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating Generics</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.885421c5.js" as="script"><link rel="preload" href="/assets/js/2.63033d72.js" as="script"><link rel="preload" href="/assets/js/6.52fc7c97.js" as="script"><link rel="prefetch" href="/assets/js/10.0b3c205e.js"><link rel="prefetch" href="/assets/js/100.96b937c1.js"><link rel="prefetch" href="/assets/js/101.307416f3.js"><link rel="prefetch" href="/assets/js/102.ad03aa52.js"><link rel="prefetch" href="/assets/js/103.f62a5b6a.js"><link rel="prefetch" href="/assets/js/104.af54bf4a.js"><link rel="prefetch" href="/assets/js/105.7e28a867.js"><link rel="prefetch" href="/assets/js/106.f43671e2.js"><link rel="prefetch" href="/assets/js/107.193e626f.js"><link rel="prefetch" href="/assets/js/108.48f6a137.js"><link rel="prefetch" href="/assets/js/109.cd1a3844.js"><link rel="prefetch" href="/assets/js/11.44430f62.js"><link rel="prefetch" href="/assets/js/110.1dd502da.js"><link rel="prefetch" href="/assets/js/111.ccb021d8.js"><link rel="prefetch" href="/assets/js/112.75e535d0.js"><link rel="prefetch" href="/assets/js/113.bfe1eaad.js"><link rel="prefetch" href="/assets/js/114.521ecc45.js"><link rel="prefetch" href="/assets/js/115.848462f3.js"><link rel="prefetch" href="/assets/js/116.f7937681.js"><link rel="prefetch" href="/assets/js/117.d00e5088.js"><link rel="prefetch" href="/assets/js/118.fd0e9def.js"><link rel="prefetch" href="/assets/js/119.c64902aa.js"><link rel="prefetch" href="/assets/js/12.d9d3b76c.js"><link rel="prefetch" href="/assets/js/120.c029eaac.js"><link rel="prefetch" href="/assets/js/121.17f7bf8c.js"><link rel="prefetch" href="/assets/js/122.a46a015c.js"><link rel="prefetch" href="/assets/js/123.bd8273f5.js"><link rel="prefetch" href="/assets/js/124.f0266688.js"><link rel="prefetch" href="/assets/js/125.23db0445.js"><link rel="prefetch" href="/assets/js/126.6c8e4b81.js"><link rel="prefetch" href="/assets/js/127.58121e7c.js"><link rel="prefetch" href="/assets/js/128.e81625d0.js"><link rel="prefetch" href="/assets/js/129.2086e255.js"><link rel="prefetch" href="/assets/js/13.02f01f86.js"><link rel="prefetch" href="/assets/js/130.358aa726.js"><link rel="prefetch" href="/assets/js/131.2db58096.js"><link rel="prefetch" href="/assets/js/132.bcbdada5.js"><link rel="prefetch" href="/assets/js/133.2c908f82.js"><link rel="prefetch" href="/assets/js/134.eade1bde.js"><link rel="prefetch" href="/assets/js/135.b89936b5.js"><link rel="prefetch" href="/assets/js/136.e88a267d.js"><link rel="prefetch" href="/assets/js/137.61035549.js"><link rel="prefetch" href="/assets/js/138.f89fbe70.js"><link rel="prefetch" href="/assets/js/139.771cd71c.js"><link rel="prefetch" href="/assets/js/14.7f3bb0b0.js"><link rel="prefetch" href="/assets/js/140.34a95e86.js"><link rel="prefetch" href="/assets/js/141.ec95bcce.js"><link rel="prefetch" href="/assets/js/142.13e1ee8e.js"><link rel="prefetch" href="/assets/js/143.1aa42e4b.js"><link rel="prefetch" href="/assets/js/144.37aab2b7.js"><link rel="prefetch" href="/assets/js/145.be3bc861.js"><link rel="prefetch" href="/assets/js/146.e5d674e1.js"><link rel="prefetch" href="/assets/js/147.58aec8b2.js"><link rel="prefetch" href="/assets/js/148.2b890544.js"><link rel="prefetch" href="/assets/js/149.abf23b17.js"><link rel="prefetch" href="/assets/js/15.9ee435da.js"><link rel="prefetch" href="/assets/js/150.294e67e5.js"><link rel="prefetch" href="/assets/js/151.0a384fa7.js"><link rel="prefetch" href="/assets/js/152.fdcc22f9.js"><link rel="prefetch" href="/assets/js/153.9da97a5a.js"><link rel="prefetch" href="/assets/js/154.9d75aa68.js"><link rel="prefetch" href="/assets/js/155.cb639e66.js"><link rel="prefetch" href="/assets/js/156.bac15746.js"><link rel="prefetch" href="/assets/js/157.59912327.js"><link rel="prefetch" href="/assets/js/158.70b73dcc.js"><link rel="prefetch" href="/assets/js/159.e88d2e22.js"><link rel="prefetch" href="/assets/js/16.35e658e9.js"><link rel="prefetch" href="/assets/js/160.f139525d.js"><link rel="prefetch" href="/assets/js/161.a37a29b7.js"><link rel="prefetch" href="/assets/js/162.6f5d3003.js"><link rel="prefetch" href="/assets/js/163.14aa422f.js"><link rel="prefetch" href="/assets/js/164.4b33e948.js"><link rel="prefetch" href="/assets/js/165.fb54ffee.js"><link rel="prefetch" href="/assets/js/166.041ac020.js"><link rel="prefetch" href="/assets/js/167.afa2fc40.js"><link rel="prefetch" href="/assets/js/168.e8dd5ce6.js"><link rel="prefetch" href="/assets/js/169.c6f23778.js"><link rel="prefetch" href="/assets/js/17.75911907.js"><link rel="prefetch" href="/assets/js/170.845b5d59.js"><link rel="prefetch" href="/assets/js/171.7e3dcda3.js"><link rel="prefetch" href="/assets/js/172.2d115602.js"><link rel="prefetch" href="/assets/js/173.872cef97.js"><link rel="prefetch" href="/assets/js/174.2ba2ca5e.js"><link rel="prefetch" href="/assets/js/175.dc1b572f.js"><link rel="prefetch" href="/assets/js/176.7692d4c3.js"><link rel="prefetch" href="/assets/js/177.22d1ef39.js"><link rel="prefetch" href="/assets/js/178.392431b3.js"><link rel="prefetch" href="/assets/js/179.31375329.js"><link rel="prefetch" href="/assets/js/18.e1886c50.js"><link rel="prefetch" href="/assets/js/180.eab449ae.js"><link rel="prefetch" href="/assets/js/181.de02433a.js"><link rel="prefetch" href="/assets/js/182.69f2a2ac.js"><link rel="prefetch" href="/assets/js/183.a7c29149.js"><link rel="prefetch" href="/assets/js/184.d172410d.js"><link rel="prefetch" href="/assets/js/185.55f5cb3b.js"><link rel="prefetch" href="/assets/js/186.fe28ccd6.js"><link rel="prefetch" href="/assets/js/187.7078cb3a.js"><link rel="prefetch" href="/assets/js/188.33d16ad2.js"><link rel="prefetch" href="/assets/js/189.429e8408.js"><link rel="prefetch" href="/assets/js/19.0c100fc8.js"><link rel="prefetch" href="/assets/js/190.9fc52549.js"><link rel="prefetch" href="/assets/js/191.579656e4.js"><link rel="prefetch" href="/assets/js/192.1faeacc0.js"><link rel="prefetch" href="/assets/js/193.26b1f939.js"><link rel="prefetch" href="/assets/js/194.7b06da95.js"><link rel="prefetch" href="/assets/js/195.99cc7e20.js"><link rel="prefetch" href="/assets/js/196.1ea3220f.js"><link rel="prefetch" href="/assets/js/197.3738ecaa.js"><link rel="prefetch" href="/assets/js/198.b5f0dcb0.js"><link rel="prefetch" href="/assets/js/199.4c37b475.js"><link rel="prefetch" href="/assets/js/20.d3ec4ffd.js"><link rel="prefetch" href="/assets/js/200.d0f3b502.js"><link rel="prefetch" href="/assets/js/201.56c48b30.js"><link rel="prefetch" href="/assets/js/202.dc7fe2ea.js"><link rel="prefetch" href="/assets/js/203.2e7e7f17.js"><link rel="prefetch" href="/assets/js/204.71fe20bf.js"><link rel="prefetch" href="/assets/js/205.41b84b9d.js"><link rel="prefetch" href="/assets/js/206.cdc16e15.js"><link rel="prefetch" href="/assets/js/21.718b7fbf.js"><link rel="prefetch" href="/assets/js/22.3ae17164.js"><link rel="prefetch" href="/assets/js/23.ad0a6015.js"><link rel="prefetch" href="/assets/js/24.4487bebb.js"><link rel="prefetch" href="/assets/js/25.41a5d823.js"><link rel="prefetch" href="/assets/js/26.4e51890f.js"><link rel="prefetch" href="/assets/js/27.fd478fd6.js"><link rel="prefetch" href="/assets/js/28.211d4aa6.js"><link rel="prefetch" href="/assets/js/29.5b060608.js"><link rel="prefetch" href="/assets/js/3.75220a5c.js"><link rel="prefetch" href="/assets/js/30.e24a6501.js"><link rel="prefetch" href="/assets/js/31.79b31301.js"><link rel="prefetch" href="/assets/js/32.743ba4bf.js"><link rel="prefetch" href="/assets/js/33.4fff5d91.js"><link rel="prefetch" href="/assets/js/34.ac036805.js"><link rel="prefetch" href="/assets/js/35.8021acce.js"><link rel="prefetch" href="/assets/js/36.469285e3.js"><link rel="prefetch" href="/assets/js/37.ea7464b1.js"><link rel="prefetch" href="/assets/js/38.be0f1986.js"><link rel="prefetch" href="/assets/js/39.42be918e.js"><link rel="prefetch" href="/assets/js/4.f5011ba2.js"><link rel="prefetch" href="/assets/js/40.ac571077.js"><link rel="prefetch" href="/assets/js/41.f593e342.js"><link rel="prefetch" href="/assets/js/42.bca3b705.js"><link rel="prefetch" href="/assets/js/43.f5070b9f.js"><link rel="prefetch" href="/assets/js/44.a3911525.js"><link rel="prefetch" href="/assets/js/45.b9fc883d.js"><link rel="prefetch" href="/assets/js/46.464c7e51.js"><link rel="prefetch" href="/assets/js/47.7807b8a1.js"><link rel="prefetch" href="/assets/js/48.d5ae16c3.js"><link rel="prefetch" href="/assets/js/49.6d24b07e.js"><link rel="prefetch" href="/assets/js/5.b582c580.js"><link rel="prefetch" href="/assets/js/50.4d1db70c.js"><link rel="prefetch" href="/assets/js/51.89065036.js"><link rel="prefetch" href="/assets/js/52.f308826a.js"><link rel="prefetch" href="/assets/js/53.f416c945.js"><link rel="prefetch" href="/assets/js/54.de986d56.js"><link rel="prefetch" href="/assets/js/55.a38a082e.js"><link rel="prefetch" href="/assets/js/56.1c42fbac.js"><link rel="prefetch" href="/assets/js/57.077a2b61.js"><link rel="prefetch" href="/assets/js/58.80d7cb5e.js"><link rel="prefetch" href="/assets/js/59.c2ee2cf4.js"><link rel="prefetch" href="/assets/js/60.0bf8a1a7.js"><link rel="prefetch" href="/assets/js/61.1257ff7b.js"><link rel="prefetch" href="/assets/js/62.c41e8c91.js"><link rel="prefetch" href="/assets/js/63.39361554.js"><link rel="prefetch" href="/assets/js/64.597581ff.js"><link rel="prefetch" href="/assets/js/65.9e1a8d7c.js"><link rel="prefetch" href="/assets/js/66.334ddb5e.js"><link rel="prefetch" href="/assets/js/67.abb8980a.js"><link rel="prefetch" href="/assets/js/68.50d6ccbd.js"><link rel="prefetch" href="/assets/js/69.78adbe1e.js"><link rel="prefetch" href="/assets/js/7.069c08dd.js"><link rel="prefetch" href="/assets/js/70.b31703cd.js"><link rel="prefetch" href="/assets/js/71.ccd34bfc.js"><link rel="prefetch" href="/assets/js/72.a2477889.js"><link rel="prefetch" href="/assets/js/73.3c0a5fa3.js"><link rel="prefetch" href="/assets/js/74.e27d5da5.js"><link rel="prefetch" href="/assets/js/75.581bc1ad.js"><link rel="prefetch" href="/assets/js/76.1eb8f4e3.js"><link rel="prefetch" href="/assets/js/77.fdab5a7d.js"><link rel="prefetch" href="/assets/js/78.176ad3f1.js"><link rel="prefetch" href="/assets/js/79.a4feb4cd.js"><link rel="prefetch" href="/assets/js/8.5f8a95e5.js"><link rel="prefetch" href="/assets/js/80.74a9ea67.js"><link rel="prefetch" href="/assets/js/81.b475a94b.js"><link rel="prefetch" href="/assets/js/82.aa6cf5bc.js"><link rel="prefetch" href="/assets/js/83.3ef99db9.js"><link rel="prefetch" href="/assets/js/84.d93f9635.js"><link rel="prefetch" href="/assets/js/85.0e647886.js"><link rel="prefetch" href="/assets/js/86.dc078fed.js"><link rel="prefetch" href="/assets/js/87.975d4001.js"><link rel="prefetch" href="/assets/js/88.19f5ee6a.js"><link rel="prefetch" href="/assets/js/89.d6d84503.js"><link rel="prefetch" href="/assets/js/9.fc7a2252.js"><link rel="prefetch" href="/assets/js/90.6c1b5340.js"><link rel="prefetch" href="/assets/js/91.1f9f9747.js"><link rel="prefetch" href="/assets/js/92.d8d60a44.js"><link rel="prefetch" href="/assets/js/93.28110f57.js"><link rel="prefetch" href="/assets/js/94.f4c5cd90.js"><link rel="prefetch" href="/assets/js/95.afa19f49.js"><link rel="prefetch" href="/assets/js/96.abed696f.js"><link rel="prefetch" href="/assets/js/97.b4b650c9.js"><link rel="prefetch" href="/assets/js/98.7892a857.js"><link rel="prefetch" href="/assets/js/99.9c0aaa7c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="creating-generics"><a href="#creating-generics" class="header-anchor">#</a> Creating Generics</h1> <blockquote><p>Generic code works with types that are “specified later.”</p></blockquote> <p>Ordinary classes and functions work with specific types. If you want code to work across more types, this rigidity can be overconstraining.</p> <p>[Polymorphism](javascript:void(0)) is an object-oriented generalization tool. You write a function that takes a base-class object as a parameter, then call that function with an object of any class derived from that base class—including classes that haven’t yet been created. Now your function is more general, and useful in more places.</p> <p>A single hierarchy can be too limiting because you must inherit <em>from that hierarchy</em> to produce an object that fits your function parameter. If a function parameter is an interface instead of a class, the limitations are loosened to include anything that implements that interface. This gives the client programmer the option of implementing an interface in combination with an existing class—that is, to <em>adapt</em> an existing class to fit the function. Used this way, interfaces can cut across class hierarchies.</p> <p>Sometimes even an interface is too restrictive because it forces you to work with only that interface. Your code can be even more general if it works with “some unspecified type,” rather than a particular interface or class. That “unspecified type” is a <em>generic type parameter</em>.</p> <p>Creating generic types and functions is a fairly complex topic, much of which is outside the scope of this book. This atom attempts to give you just enough background so you aren’t surprised when you come across generic concepts and keywords. If you want to get serious about writing generic types and functions you’ll need to study more advanced resources.</p> <h3 id="any"><a href="#any" class="header-anchor">#</a> <code>Any</code></h3> <p><code>Any</code> is the root of the Kotlin class hierarchy. Every Kotlin class has <code>Any</code> as a superclass. One way to work with unspecified types is by passing <code>Any</code> arguments, and this can sometimes confuse the issue of when to use generics. If <code>Any</code> works, it’s the simpler solution, and simpler is generally better.</p> <p>There are two ways to use <code>Any</code>. The first, and most straightforward approach, is when you only need to operate on an <code>Any</code>, and nothing more. This is extremely limiting—<code>Any</code> has only three member functions: <code>equals()</code>, <code>hashCode()</code> and <code>toString()</code>. There are also extension functions, but these cannot perform any direct operations on the type. For example, <code>apply()</code> only applies its function argument to the <code>Any</code>.</p> <p>If you know the type of the <code>Any</code>, you can cast it and perform type-specific operations. Because this involves run-time type information (as shown in [Downcasting](javascript:void(0))), you risk a runtime error if you pass the wrong type to your function (there’s also a slight performance impact). Sometimes this is justified to gain the benefit of eliminating code duplication.</p> <p>For example, suppose three types each have the ability to communicate. They come from different libraries so you can’t just put them in the same hierarchy, and they have different function names for communicating:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/Speakers.kt
+package creatinggenerics
+import atomictest.eq
+
+class Person {
+  fun speak() = &quot;Hi!&quot;
+}
+
+class Dog {
+  fun bark() = &quot;Ruff!&quot;
+}
+
+class Robot {
+  fun communicate() = &quot;Beep!&quot;
+}
+
+fun talk(speaker: Any) = when (speaker) {
+  is Person -&gt; speaker.speak()
+  is Dog -&gt; speaker.bark()
+  is Robot -&gt; speaker.communicate()
+  else -&gt; &quot;Not a talker&quot; // Or exception
+}
+
+fun main() {
+  talk(Person()) eq &quot;Hi!&quot;
+  talk(Dog()) eq &quot;Ruff!&quot;
+  talk(Robot()) eq &quot;Beep!&quot;
+  talk(11) eq &quot;Not a talker&quot;
+}
+</code></pre></div><p>The <code>when</code> expression discovers the type of the <code>speaker</code> and calls the appropriate function. If you don’t think <code>talk()</code> will ever need to work with additional types, this is a tolerable solution. Otherwise, it requires you to modify <code>talk()</code> for each new type you add, and to rely on runtime information to discover when you miss something.</p> <h3 id="defining-generics"><a href="#defining-generics" class="header-anchor">#</a> Defining Generics</h3> <p>Duplicated code is a candidate for conversion into a generic function or type. You do this by adding angle brackets (<code>&lt;&gt;</code>) containing one or more generic placeholders. Here, the generic placeholder <code>T</code> represents the unknown type:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/DefiningGenerics.kt
+package creatinggenerics
+
+fun &lt;T&gt; gFunction(arg: T): T = arg
+
+class GClass&lt;T&gt;(val x: T) {
+  fun f(): T = x
+}
+
+class GMemberFunction {
+  fun &lt;T&gt; f(arg: T): T = arg
+}
+
+interface GInterface&lt;T&gt; {
+  val x: T
+  fun f(): T
+}
+
+class GImplementation&lt;T&gt;(
+  override val x: T
+) : GInterface&lt;T&gt; {
+  override fun f(): T = x
+}
+
+class ConcreteImplementation
+  : GInterface&lt;String&gt; {
+  override val x: String
+    get() = &quot;x&quot;
+  override fun f() = &quot;f()&quot;
+}
+
+fun basicGenerics() {
+  gFunction(&quot;Yellow&quot;)
+  gFunction(1)
+  gFunction(Dog()).bark()            // [1]
+  gFunction&lt;Dog&gt;(Dog()).bark()
+
+  GClass(&quot;Cyan&quot;).f()
+  GClass(11).f()
+  GClass(Dog()).f().bark()           // [2]
+  GClass&lt;Dog&gt;(Dog()).f().bark()
+
+  GMemberFunction().f(&quot;Amber&quot;)
+  GMemberFunction().f(111)
+  GMemberFunction().f(Dog()).bark()  // [3]
+  GMemberFunction().f&lt;Dog&gt;(Dog()).bark()
+
+  GImplementation(&quot;Cyan&quot;).f()
+  GImplementation(11).f()
+  GImplementation(Dog()).f().bark()
+
+  ConcreteImplementation().f()
+  ConcreteImplementation().x
+}
+</code></pre></div><p><code>basicGenerics()</code> shows that each generic handles different types:</p> <ul><li><code>gFunction()</code> takes a parameter of type <code>T</code> and returns a <code>T</code> result.</li> <li><code>GClass</code> stores a <code>T</code>. Its member function <code>f()</code> returns a <code>T</code>.</li> <li><code>GMemberFunction</code> parameterizes a member function <em>within</em> the class, rather than parameterizing the entire class.</li> <li>You can also define an <code>interface</code> with generic parameters as shown in <code>GInterface</code>. An implementation of <code>GInterface</code> can either redefine a type parameter as in <code>GImplementation</code>, or provide a specific type argument, as in <code>ConcreteImplementation</code>.</li></ul> <p>Notice in <strong>[1]</strong>, <strong>[2]</strong> and <strong>[3]</strong> that we are able to call <code>bark()</code> on the result, because that result emerges as type <code>Dog</code>.</p> <p>Consider <strong>[1]</strong>, <strong>[2]</strong> and <strong>[3]</strong>, and the lines immediately following them. The type <code>T</code> is determined by type inference for <strong>[1]</strong>, <strong>[2]</strong> and <strong>[3]</strong>. Sometimes this is not possible if a generic or its invocation is too complex to be parsed by the compiler. In this case you must specify the type(s) using the syntax shown in the lines immediately following <strong>[1]</strong>, <strong>[2]</strong> and <strong>[3]</strong>.</p> <h3 id="preserving-type-information"><a href="#preserving-type-information" class="header-anchor">#</a> Preserving Type Information</h3> <p>As you will see later in this atom, code <em>within</em> generic classes and functions can’t know the type of <code>T</code>—this is called <em>erasure</em>. Generics can be thought of as a way to preserve type information for the return value. This way, you don’t have to write code to explicitly check and cast a return value to the desired type.</p> <p>A common use of generic code is for containers that hold other objects. Consider a <code>CarCrate</code> class that acts as a trivial collection by holding and producing a single element of type <code>Car</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/CarCrate.kt
+package creatinggenerics
+import atomictest.eq
+
+class Car {
+  override fun toString() = &quot;Car&quot;
+}
+
+class CarCrate(private var c: Car) {
+  fun put(car: Car) { c = car }
+  fun get(): Car = c
+}
+
+fun main() {
+  val cc = CarCrate(Car())
+  val car: Car = cc.get()
+  car eq &quot;Car&quot;
+}
+</code></pre></div><p>When we call <code>cc.get()</code>, the result comes back as type <code>Car</code>. We’d like to make this tool available to more objects than just <code>Car</code>s, so we generify this class as <code>Crate&lt;T&gt;</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/Crate.kt
+package creatinggenerics
+import atomictest.eq
+
+open class Crate&lt;T&gt;(private var contents: T) {
+  fun put(item: T) { contents = item }
+  fun get(): T = contents
+}
+
+fun main() {
+  val cc = Crate(Car())
+  val car: Car = cc.get()
+  car eq &quot;Car&quot;
+}
+</code></pre></div><p><code>Crate&lt;T&gt;</code> ensures that you can only <code>put()</code> a <code>T</code> into the <code>Crate</code>, and when you call <code>get()</code> on that <code>Crate</code>, the result comes back as type <code>T</code>.</p> <p>We can make a version of <code>map()</code> for <code>Crate</code> by defining a generic extension function:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/MapCrate.kt
+package creatinggenerics
+import atomictest.eq
+
+fun &lt;T, R&gt; Crate&lt;T&gt;.map(f:(T) -&gt; R): List&lt;R&gt; =
+  listOf(f(get()))
+
+fun main() {
+  Crate(Car()).map { it.toString() + &quot;x&quot; } eq
+    &quot;[Carx]&quot;
+}
+</code></pre></div><p><code>map()</code> returns the <code>List</code> of results produced by applying <code>f()</code> to each element in the input sequence. Because <code>Crate</code> only contains a single element, the result is always a <code>List</code> of one element. There are two generic arguments: <code>T</code> for the input value and <code>R</code> for the result, allowing <code>f()</code> to produce a result type that is different from the input type.</p> <h3 id="type-parameter-constraints"><a href="#type-parameter-constraints" class="header-anchor">#</a> Type Parameter Constraints</h3> <p>A <em>type parameter constraint</em> says that the generic argument type must be inherited from the constraint. <code>&lt;T : Base&gt;</code> means that <code>T</code> must be of type <code>Base</code> or something derived from <code>Base</code>. This section shows that using constraints is different from a non-generic type that inherits <code>Base</code>.</p> <p>Consider a type hierarchy that models different items and ways to dispose of them:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/Disposable.kt
+package creatinggenerics
+import atomictest.eq
+
+interface Disposable {
+  val name: String
+  fun action(): String
+}
+
+class Compost(override val name: String) :
+  Disposable {
+  override fun action() = &quot;Add to composter&quot;
+}
+
+interface Transport : Disposable
+
+class Donation(override val name: String) :
+  Transport {
+  override fun action() = &quot;Call for pickup&quot;
+}
+
+class Recyclable(override val name: String) :
+  Transport {
+  override fun action() = &quot;Put in bin&quot;
+}
+
+class Landfill(override val name: String) :
+  Transport {
+  override fun action() = &quot;Put in dumpster&quot;
+}
+
+val items = listOf(
+  Compost(&quot;Orange Peel&quot;),
+  Compost(&quot;Apple Core&quot;),
+  Donation(&quot;Couch&quot;),
+  Donation(&quot;Clothing&quot;),
+  Recyclable(&quot;Plastic&quot;),
+  Recyclable(&quot;Metal&quot;),
+  Recyclable(&quot;Cardboard&quot;),
+  Landfill(&quot;Trash&quot;),
+)
+
+val recyclables =
+  items.filterIsInstance&lt;Recyclable&gt;()
+</code></pre></div><p>Using a constraint, we can access properties and functions of the constrained type within a generic function:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/Constrained.kt
+package creatinggenerics
+import atomictest.eq
+
+fun &lt;T: Disposable&gt; nameOf(disposable: T) =
+  disposable.name
+
+// As an extension:
+fun &lt;T: Disposable&gt; T.name() = name
+
+fun main() {
+  recyclables.map { nameOf(it) } eq
+    &quot;[Plastic, Metal, Cardboard]&quot;
+  recyclables.map { it.name() } eq
+    &quot;[Plastic, Metal, Cardboard]&quot;
+}
+</code></pre></div><p>We cannot access <code>name</code> without the constraint.</p> <p>This achieves the same result without generics:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/NonGenericConstraint.kt
+package creatinggenerics
+import atomictest.eq
+
+fun nameOf2(disposable: Disposable) =
+  disposable.name
+
+fun Disposable.name2() = name
+
+fun main() {
+  recyclables.map { nameOf2(it) } eq
+    &quot;[Plastic, Metal, Cardboard]&quot;
+  recyclables.map { it.name2() } eq
+    &quot;[Plastic, Metal, Cardboard]&quot;
+}
+</code></pre></div><p>Why use a constraint instead of ordinary polymorphism? The answer is in the return type. With generics, the return type can be exact, rather than being upcast to the base type:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/SameReturnType.kt
+package creatinggenerics
+import kotlin.random.Random
+
+private val rnd = Random(47)
+
+fun List&lt;Disposable&gt;.aRandom(): Disposable =
+  this[rnd.nextInt(size)]
+
+fun &lt;T: Disposable&gt; List&lt;T&gt;.bRandom(): T =
+  this[rnd.nextInt(size)]
+
+fun &lt;T&gt; List&lt;T&gt;.cRandom(): T =
+  this[rnd.nextInt(size)]
+
+fun sameReturnType() {
+  val a: Disposable = recyclables.aRandom()
+  val b: Recyclable = recyclables.bRandom()
+  val c: Recyclable = recyclables.cRandom()
+}
+</code></pre></div><p>Without generics, <code>aRandom()</code> can only produce a base-class <code>Disposable</code>, while both <code>bRandom()</code> and <code>cRandom()</code> produce a <code>Recyclable</code>. <code>bRandom()</code> never accesses any elements of <code>T</code>, therefore its constraint is pointless and it ends up being the same as <code>cRandom()</code>, which doesn’t use a constraint.</p> <p>The only time you need constraints is if you require <em>both</em> of the following:</p> <ol><li>Access a function or property.</li> <li>Preserve the type when returning it.</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/Constraints.kt
+package creatinggenerics
+import kotlin.random.Random
+
+private val rnd = Random(47)
+
+// Accesses action() but can't
+// return the exact type:
+fun List&lt;Disposable&gt;.inexact(): Disposable {
+  val d: Disposable = this[rnd.nextInt(size)]
+  d.action()
+  return d
+}
+
+// Can't access action() without a constraint:
+fun &lt;T&gt; List&lt;T&gt;.noAccess(): T {
+  val d: T = this[rnd.nextInt(size)]
+  // d.action()
+  return d
+}
+
+// Access action() and return the exact type:
+fun &lt;T: Disposable&gt; List&lt;T&gt;.both(): T {
+  val d: T = this[rnd.nextInt(size)]
+  d.action()
+  return d
+}
+
+fun constraints() {
+  val i: Disposable = recyclables.inexact()
+  val n: Recyclable = recyclables.noAccess()
+  val b: Recyclable = recyclables.both()
+}
+</code></pre></div><p><code>inexact()</code> is an extension to <code>List&lt;Disposable&gt;</code>, which allows it to access <code>action()</code>, but it is not generic so it can only return the base type <code>Disposable</code>. As a generic, <code>noAccess()</code> is able to return the exact type of <code>T</code>, but without a constraint it cannot access <code>action()</code>. Only when you add the constraint on <code>T</code> in <code>both()</code> are you able to access <code>action()</code> <em>and</em> return the exact type <code>T</code>.</p> <h3 id="type-erasure"><a href="#type-erasure" class="header-anchor">#</a> Type Erasure</h3> <p>Java compatibility is an essential part of Kotlin. In Java, generics were not part of the original language—they were added years later, after large bodies of code had been written. Forcing generics into Java without breaking existing code required a crucial compromise: the generic types are only available during compilation but are not preserved at runtime—the types are <em>erased</em>. This <em>erasure</em> affects Kotlin.</p> <p>Let’s pretend erasure doesn’t happen:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/Erasure.kt
+package creatinggenerics
+
+fun main() {
+  val strings = listOf(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+  val all: List&lt;Any&gt; = listOf(1, 2, &quot;x&quot;)
+  useList(strings)
+  useList(all)
+}
+
+fun useList(list: List&lt;Any&gt;) {
+  // if (list is List&lt;String&gt;) {}  // [1]
+}
+</code></pre></div><p>Uncomment line <strong>[1]</strong> and you’ll see the following error: “Cannot check for instance of erased type: <code>List&lt;String&gt;</code>”. You can’t test for the generic type at runtime because the type information has been erased.</p> <p>If erasure <em>didn’t</em> happen, the list might look like this, assuming additional type information is placed at the end of the list (it does <strong>not</strong> work this way!):</p> <div align="center"><img src="/assets/img/reified-generics.4e311ffc.png" alt="reified generics" style="zoom:10%;"> <p>Reified Generics</p></div>
+Because generic types are erased, type information is *not* stored in the `List`. Instead, both `strings` and `all` are just `List`s, with no additional type information:
+<div align="center"><img src="/assets/img/erased-generics.44d5e0ea.png" alt="erased generics" style="zoom:10%;"> <p>Erased Generics</p></div> <p>You cannot guess type information from the <code>List</code> contents without analyzing all elements. Checking only the first element from the second list leads you to incorrectly assume that it’s a <code>List&lt;Int&gt;</code>.</p> <p>The Kotlin designers decided to follow Java and use erasure, for two reasons:</p> <ol><li>Java compatibility.</li> <li>Overhead. Storing generic type information significantly increases the memory occupied by a generic <code>List</code> or <code>Map</code>. For example, a standard <code>Map</code> consists of many <code>Map.Entry</code> objects, and <code>Map.Entry</code> is a generic class. Thus, if generics were reified everywhere by default, each key and value of every <code>Map.Entry</code> would contain additional type information.</li></ol> <h3 id="reification-of-function-type-arguments"><a href="#reification-of-function-type-arguments" class="header-anchor">#</a> Reification of Function Type Arguments</h3> <p>Type information is also erased for generic function calls, which means you can’t do much with a generic parameter inside a function.</p> <p>To retain type information for function arguments, add the <code>reified</code> keyword. Consider a function <code>a()</code> that requires class information to perform its task:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/ReificationA.kt
+package creatinggenerics
+import kotlin.reflect.KClass
+
+fun &lt;T: Any&gt; a(kClass: KClass&lt;T&gt;) {
+  // Uses KClass&lt;T&gt;
+}
+</code></pre></div><p>When we call <code>a()</code> inside a second generic function <code>b()</code>, we would like to use type information for the generic argument:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/ReificationB.kt
+package creatinggenerics
+
+// Doesn't compile because of erasure:
+// fun &lt;T: Any&gt; b() = a(T::class)
+</code></pre></div><p>The type information for <code>T</code> is erased when this code runs, so <code>b()</code> won’t compile. You can’t access the class of the generic type parameter inside the function body.</p> <p>The Java solution is to pass type information into the function by hand:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/ReificationC.kt
+package creatinggenerics
+import kotlin.reflect.KClass
+
+fun &lt;T: Any&gt; c(kClass: KClass&lt;T&gt;) = a(kClass)
+
+class K
+
+val kc = c(K::class)
+</code></pre></div><p>Passing explicit type information <em>should</em> be redundant because the compiler knows the type of <code>T</code>, and could silently pass it for you. This is effectively what the <code>reified</code> keyword does.</p> <p>To use <code>reified</code>, the function must also be <code>inline</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/ReificationD.kt
+package creatinggenerics
+
+inline fun &lt;reified T: Any&gt; d() = a(T::class)
+
+val kd = d&lt;K&gt;()
+</code></pre></div><p><code>d()</code> produces the same effect as <code>c()</code>, but <code>d()</code> doesn’t require the class reference as an argument.</p> <p><code>reified</code> tells the compiler to preserve the information about the corresponding type argument. The type information is now available at runtime so you can access it inside the function body.</p> <p>Reification allows the use of <code>is</code> with a generic parameter type:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/CheckType.kt
+package creatinggenerics
+import atomictest.eq
+
+inline fun &lt;reified T&gt; check(t: Any) = t is T
+// fun &lt;T&gt; check1(t: Any) = t is T     // [1]
+
+fun main() {
+  check&lt;String&gt;(&quot;1&quot;) eq true
+  check&lt;Int&gt;(&quot;1&quot;) eq false
+}
+</code></pre></div><ul><li><strong>[1]</strong> Without <code>reified</code>, the type information is erased so you can’t check whether a given element is an instance of <code>T</code>.</li></ul> <p>In the following example, <code>select()</code> produces the <code>name</code> of each <code>Disposable</code> item of a particular subtype. It uses <code>reified</code> combined with a constraint:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/Select.kt
+package creatinggenerics
+import atomictest.eq
+
+inline fun &lt;reified T : Disposable&gt; select() =
+  items.filterIsInstance&lt;T&gt;().map { it.name }
+
+fun main() {
+  select&lt;Compost&gt;() eq
+    &quot;[Orange Peel, Apple Core]&quot;
+  select&lt;Donation&gt;() eq &quot;[Couch, Clothing]&quot;
+  select&lt;Recyclable&gt;() eq
+    &quot;[Plastic, Metal, Cardboard]&quot;
+  select&lt;Landfill&gt;() eq &quot;[Trash]&quot;
+}
+</code></pre></div><p>The library function <code>filterIsInstance()</code> is itself defined using the <code>reified</code> keyword.</p> <h3 id="variance"><a href="#variance" class="header-anchor">#</a> Variance</h3> <p>Combining generics and inheritance produces two dimensions of change. If you have a <code>Container&lt;T&gt;</code> and you want to assign it to a <code>Container&lt;U&gt;</code> where <code>T</code> and <code>U</code> have an inheritance relationship, you must place constraints upon <code>Container</code> using the <code>in</code> or <code>out</code> <em>variance annotations</em>, depending on how you want to use <code>Container</code>.</p> <p>Here are three versions of a <code>Box</code> container: a basic <code>Box&lt;T&gt;</code>, one using <code>&lt;in T&gt;</code> and one using <code>&lt;out T&gt;</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/InAndOutBoxes.kt
+package variance
+
+class Box&lt;T&gt;(private var contents: T) {
+  fun put(item: T) { contents = item }
+  fun get(): T = contents
+}
+
+class InBox&lt;in T&gt;(private var contents: T) {
+  fun put(item: T) { contents = item }
+}
+
+class OutBox&lt;out T&gt;(private var contents: T) {
+  fun get(): T = contents
+}
+</code></pre></div><p><code>in T</code> means that member functions of the class can only accept arguments of type <code>T</code>, but cannot return values of type <code>T</code>. That is, <code>T</code> objects can be placed <em>into</em> an <code>InBox</code>, but cannot come out.</p> <p><code>out T</code> means that member functions can return <code>T</code> objects, but cannot accept arguments of type <code>T</code>—you cannot place <code>T</code> objects into an <code>OutBox</code>.</p> <p>Why do we need these constraints? Consider this hierarchy:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/Pets.kt
+package variance
+
+open class Pet
+class Cat : Pet()
+class Dog : Pet()
+</code></pre></div><p><code>Cat</code> and <code>Dog</code> are both subtypes of <code>Pet</code>. Is there a subtyping relation between <code>Box&lt;Cat&gt;</code> and <code>Box&lt;Pet&gt;</code>? It seems like we should be able to assign, for example, a <code>Box</code> of <code>Cat</code> to a <code>Box</code> of <code>Pet</code> or to a <code>Box</code> of <code>Any</code> (because <code>Any</code> is a supertype of everything):</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/BoxAssignment.kt
+package variance
+
+val catBox = Box&lt;Cat&gt;(Cat())
+// val petBox: Box&lt;Pet&gt; = catBox
+// val anyBox: Box&lt;Any&gt; = catBox
+</code></pre></div><p>If Kotlin allowed this, <code>petBox</code> would have <code>put(item: Pet)</code>. <code>Dog</code> is also a <code>Pet</code>, so this would allow you to put a <code>Dog</code> into <code>catBox</code>, violating the “cat-ness” of that <code>Box</code>.</p> <p>Worse, <code>anyBox</code> would have <code>put(item: Any)</code>, so you could put an <code>Any</code> into <code>catBox</code>—the container would have no type safety at all.</p> <p>If we prevent the use of <code>put()</code>, the assignments are safe because no one can put a <code>Dog</code> into an <code>OutBox&lt;Cat&gt;</code>. The compiler allows us to assign an <code>OutBox&lt;Cat&gt;</code> to an <code>OutBox&lt;Pet&gt;</code> or to an <code>OutBox&lt;Any&gt;</code>, because the <code>out</code> annotation prevents them from having <code>put()</code> functions:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/OutBoxAssignment.kt
+package variance
+
+val outCatBox: OutBox&lt;Cat&gt; = OutBox(Cat())
+val outPetBox: OutBox&lt;Pet&gt; = outCatBox
+val outAnyBox: OutBox&lt;Any&gt; = outCatBox
+
+fun getting() {
+  val cat: Cat = outCatBox.get()
+  val pet: Pet = outPetBox.get()
+  val any: Any = outAnyBox.get()
+}
+</code></pre></div><p>With no <code>put()</code>, we cannot place a <code>Dog</code> into an <code>OutBox&lt;Cat&gt;</code>, so its “cat-ness” is preserved.</p> <p>Without a <code>get()</code>, an <code>InBox&lt;Any&gt;</code> can be assigned to an <code>InBox&lt;Pet&gt;</code>, an <code>InBox&lt;Cat&gt;</code> or an <code>InBox&lt;Dog&gt;</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/InBoxAssignment.kt
+package variance
+
+val inBoxAny: InBox&lt;Any&gt; = InBox(Any())
+val inBoxPet: InBox&lt;Pet&gt; = inBoxAny
+val inBoxCat: InBox&lt;Cat&gt; = inBoxAny
+val inBoxDog: InBox&lt;Dog&gt; = inBoxAny
+
+fun main() {
+  inBoxAny.put(Any())
+  inBoxAny.put(Pet())
+  inBoxAny.put(Cat())
+  inBoxAny.put(Dog())
+
+  inBoxPet.put(Pet())
+  inBoxPet.put(Cat())
+  inBoxPet.put(Dog())
+
+  inBoxCat.put(Cat())
+  inBoxDog.put(Dog())
+}
+</code></pre></div><p>It is safe to <code>put()</code> an <code>Any</code>, <code>Pet</code>, <code>Cat</code> or <code>Dog</code> into an <code>InBox&lt;Any&gt;</code>, while you can only <code>put()</code> a <code>Pet</code>, <code>Cat</code> or <code>Dog</code> into an <code>InBox&lt;Pet&gt;</code>. <code>inBoxCat</code> and <code>inBoxDog</code> will only accept <code>Cat</code>s and <code>Dog</code>s, respectively. These are the behaviors we expect for boxes that have those type parameters, and the compiler enforces it.</p> <p>Here’s a summary of the subtyping relationships for <code>Box</code>, <code>OutBox</code> and <code>InBox</code>:</p> <div align="center"><img src="/assets/img/variance.b07b08ef.png" alt="variance" style="zoom:10%;"> <p>Variance</p></div> <ul><li><code>Box&lt;T&gt;</code> is <em>invariant</em>. This means that neither <code>Box&lt;Cat&gt;</code> nor <code>Box&lt;Pet&gt;</code> is a subtype of the other, so neither can be assigned to the other.</li> <li><code>OutBox&lt;out T&gt;</code> is <em>covariant</em>. This means that <code>OutBox&lt;Cat&gt;</code> is a subtype of <code>OutBox&lt;Pet&gt;</code>. When you upcast an <code>OutBox&lt;Cat&gt;</code> to an <code>OutBox&lt;Pet&gt;</code>, it varies in the <em>same</em> way as upcasting a <code>Cat</code> to a <code>Pet</code>.</li> <li><code>InBox&lt;in T&gt;</code> is <em>contravariant</em>. This means that <code>InBox&lt;Pet&gt;</code> is a subtype of <code>InBox&lt;Cat&gt;</code>.  When you upcast an <code>InBox&lt;Pet&gt;</code> to an <code>InBox&lt;Cat&gt;</code>, it varies in the <em>opposite</em> way as upcasting a <code>Cat</code> to a <code>Pet</code>.</li></ul> <p>A read-only <code>List</code> from the Kotlin standard library is covariant. You can assign a <code>List&lt;Cat&gt;</code> to a <code>List&lt;Pet&gt;</code>. A <code>MutableList</code> is invariant because it contains an <code>add()</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/CovariantList.kt
+package variance
+
+fun main() {
+  val catList: List&lt;Cat&gt; = listOf(Cat())
+  val petList: List&lt;Pet&gt; = catList
+  var mutablePetList: MutableList&lt;Pet&gt; =
+    mutableListOf(Cat())
+  mutablePetList.add(Dog())
+  // Type mismatch:
+  // mutablePetList =
+  //    mutableListOf&lt;Cat&gt;(Cat())  // [1]
+}
+</code></pre></div><ul><li><strong>[1]</strong> If this assignment worked, we could violate the “cat-ness” of the <code>mutableListOf&lt;Cat&gt;</code> by adding a <code>Dog</code>.</li></ul> <p>Functions can have <em>covariant return types</em>. This means that an overriding function can return a type that’s more specific than the function it overrides:</p> <div class="language- extra-class"><pre class="language-text"><code>// CreatingGenerics/CovariantReturnTypes.kt
+package variance
+
+interface Parent
+interface Child : Parent
+
+interface  X {
+  fun f(): Parent
+}
+
+interface Y : X {
+  override fun f(): Child
+}
+</code></pre></div><p>Notice how the overridden <code>f()</code> in <code>Y</code> returns a <code>Child</code>, while <code>f()</code> in <code>X</code> returns a <code>Parent</code>.</p> <p>This subsection has only been a light introduction to the topic of <em>variance</em>.</p> <ul><li>-</li></ul> <p>Repeated code is a candidate for generic types or functions. This atom only provides a basic grasp of the ideas—if you need deeper understanding you must find it in a more advanced treatment.</p> <p><em><strong>Exercises and solutions can be found at www.AtomicKotlin.com.</strong></em></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.885421c5.js" defer></script><script src="/assets/js/2.63033d72.js" defer></script><script src="/assets/js/6.52fc7c97.js" defer></script>
+  </body>
+</html>

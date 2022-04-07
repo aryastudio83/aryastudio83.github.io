@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Type Checking</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.885421c5.js" as="script"><link rel="preload" href="/assets/js/2.63033d72.js" as="script"><link rel="preload" href="/assets/js/184.d172410d.js" as="script"><link rel="prefetch" href="/assets/js/10.0b3c205e.js"><link rel="prefetch" href="/assets/js/100.96b937c1.js"><link rel="prefetch" href="/assets/js/101.307416f3.js"><link rel="prefetch" href="/assets/js/102.ad03aa52.js"><link rel="prefetch" href="/assets/js/103.f62a5b6a.js"><link rel="prefetch" href="/assets/js/104.af54bf4a.js"><link rel="prefetch" href="/assets/js/105.7e28a867.js"><link rel="prefetch" href="/assets/js/106.f43671e2.js"><link rel="prefetch" href="/assets/js/107.193e626f.js"><link rel="prefetch" href="/assets/js/108.48f6a137.js"><link rel="prefetch" href="/assets/js/109.cd1a3844.js"><link rel="prefetch" href="/assets/js/11.44430f62.js"><link rel="prefetch" href="/assets/js/110.1dd502da.js"><link rel="prefetch" href="/assets/js/111.ccb021d8.js"><link rel="prefetch" href="/assets/js/112.75e535d0.js"><link rel="prefetch" href="/assets/js/113.bfe1eaad.js"><link rel="prefetch" href="/assets/js/114.521ecc45.js"><link rel="prefetch" href="/assets/js/115.848462f3.js"><link rel="prefetch" href="/assets/js/116.f7937681.js"><link rel="prefetch" href="/assets/js/117.d00e5088.js"><link rel="prefetch" href="/assets/js/118.fd0e9def.js"><link rel="prefetch" href="/assets/js/119.c64902aa.js"><link rel="prefetch" href="/assets/js/12.d9d3b76c.js"><link rel="prefetch" href="/assets/js/120.c029eaac.js"><link rel="prefetch" href="/assets/js/121.17f7bf8c.js"><link rel="prefetch" href="/assets/js/122.a46a015c.js"><link rel="prefetch" href="/assets/js/123.bd8273f5.js"><link rel="prefetch" href="/assets/js/124.f0266688.js"><link rel="prefetch" href="/assets/js/125.23db0445.js"><link rel="prefetch" href="/assets/js/126.6c8e4b81.js"><link rel="prefetch" href="/assets/js/127.58121e7c.js"><link rel="prefetch" href="/assets/js/128.e81625d0.js"><link rel="prefetch" href="/assets/js/129.2086e255.js"><link rel="prefetch" href="/assets/js/13.02f01f86.js"><link rel="prefetch" href="/assets/js/130.358aa726.js"><link rel="prefetch" href="/assets/js/131.2db58096.js"><link rel="prefetch" href="/assets/js/132.bcbdada5.js"><link rel="prefetch" href="/assets/js/133.2c908f82.js"><link rel="prefetch" href="/assets/js/134.eade1bde.js"><link rel="prefetch" href="/assets/js/135.b89936b5.js"><link rel="prefetch" href="/assets/js/136.e88a267d.js"><link rel="prefetch" href="/assets/js/137.61035549.js"><link rel="prefetch" href="/assets/js/138.f89fbe70.js"><link rel="prefetch" href="/assets/js/139.771cd71c.js"><link rel="prefetch" href="/assets/js/14.7f3bb0b0.js"><link rel="prefetch" href="/assets/js/140.34a95e86.js"><link rel="prefetch" href="/assets/js/141.ec95bcce.js"><link rel="prefetch" href="/assets/js/142.13e1ee8e.js"><link rel="prefetch" href="/assets/js/143.1aa42e4b.js"><link rel="prefetch" href="/assets/js/144.37aab2b7.js"><link rel="prefetch" href="/assets/js/145.be3bc861.js"><link rel="prefetch" href="/assets/js/146.e5d674e1.js"><link rel="prefetch" href="/assets/js/147.58aec8b2.js"><link rel="prefetch" href="/assets/js/148.2b890544.js"><link rel="prefetch" href="/assets/js/149.abf23b17.js"><link rel="prefetch" href="/assets/js/15.9ee435da.js"><link rel="prefetch" href="/assets/js/150.294e67e5.js"><link rel="prefetch" href="/assets/js/151.0a384fa7.js"><link rel="prefetch" href="/assets/js/152.fdcc22f9.js"><link rel="prefetch" href="/assets/js/153.9da97a5a.js"><link rel="prefetch" href="/assets/js/154.9d75aa68.js"><link rel="prefetch" href="/assets/js/155.cb639e66.js"><link rel="prefetch" href="/assets/js/156.bac15746.js"><link rel="prefetch" href="/assets/js/157.59912327.js"><link rel="prefetch" href="/assets/js/158.70b73dcc.js"><link rel="prefetch" href="/assets/js/159.e88d2e22.js"><link rel="prefetch" href="/assets/js/16.35e658e9.js"><link rel="prefetch" href="/assets/js/160.f139525d.js"><link rel="prefetch" href="/assets/js/161.a37a29b7.js"><link rel="prefetch" href="/assets/js/162.6f5d3003.js"><link rel="prefetch" href="/assets/js/163.14aa422f.js"><link rel="prefetch" href="/assets/js/164.4b33e948.js"><link rel="prefetch" href="/assets/js/165.fb54ffee.js"><link rel="prefetch" href="/assets/js/166.041ac020.js"><link rel="prefetch" href="/assets/js/167.afa2fc40.js"><link rel="prefetch" href="/assets/js/168.e8dd5ce6.js"><link rel="prefetch" href="/assets/js/169.c6f23778.js"><link rel="prefetch" href="/assets/js/17.75911907.js"><link rel="prefetch" href="/assets/js/170.845b5d59.js"><link rel="prefetch" href="/assets/js/171.7e3dcda3.js"><link rel="prefetch" href="/assets/js/172.2d115602.js"><link rel="prefetch" href="/assets/js/173.872cef97.js"><link rel="prefetch" href="/assets/js/174.2ba2ca5e.js"><link rel="prefetch" href="/assets/js/175.dc1b572f.js"><link rel="prefetch" href="/assets/js/176.7692d4c3.js"><link rel="prefetch" href="/assets/js/177.22d1ef39.js"><link rel="prefetch" href="/assets/js/178.392431b3.js"><link rel="prefetch" href="/assets/js/179.31375329.js"><link rel="prefetch" href="/assets/js/18.e1886c50.js"><link rel="prefetch" href="/assets/js/180.eab449ae.js"><link rel="prefetch" href="/assets/js/181.de02433a.js"><link rel="prefetch" href="/assets/js/182.69f2a2ac.js"><link rel="prefetch" href="/assets/js/183.a7c29149.js"><link rel="prefetch" href="/assets/js/185.55f5cb3b.js"><link rel="prefetch" href="/assets/js/186.fe28ccd6.js"><link rel="prefetch" href="/assets/js/187.7078cb3a.js"><link rel="prefetch" href="/assets/js/188.33d16ad2.js"><link rel="prefetch" href="/assets/js/189.429e8408.js"><link rel="prefetch" href="/assets/js/19.0c100fc8.js"><link rel="prefetch" href="/assets/js/190.9fc52549.js"><link rel="prefetch" href="/assets/js/191.579656e4.js"><link rel="prefetch" href="/assets/js/192.1faeacc0.js"><link rel="prefetch" href="/assets/js/193.26b1f939.js"><link rel="prefetch" href="/assets/js/194.7b06da95.js"><link rel="prefetch" href="/assets/js/195.99cc7e20.js"><link rel="prefetch" href="/assets/js/196.1ea3220f.js"><link rel="prefetch" href="/assets/js/197.3738ecaa.js"><link rel="prefetch" href="/assets/js/198.b5f0dcb0.js"><link rel="prefetch" href="/assets/js/199.4c37b475.js"><link rel="prefetch" href="/assets/js/20.d3ec4ffd.js"><link rel="prefetch" href="/assets/js/200.d0f3b502.js"><link rel="prefetch" href="/assets/js/201.56c48b30.js"><link rel="prefetch" href="/assets/js/202.dc7fe2ea.js"><link rel="prefetch" href="/assets/js/203.2e7e7f17.js"><link rel="prefetch" href="/assets/js/204.71fe20bf.js"><link rel="prefetch" href="/assets/js/205.41b84b9d.js"><link rel="prefetch" href="/assets/js/206.cdc16e15.js"><link rel="prefetch" href="/assets/js/21.718b7fbf.js"><link rel="prefetch" href="/assets/js/22.3ae17164.js"><link rel="prefetch" href="/assets/js/23.ad0a6015.js"><link rel="prefetch" href="/assets/js/24.4487bebb.js"><link rel="prefetch" href="/assets/js/25.41a5d823.js"><link rel="prefetch" href="/assets/js/26.4e51890f.js"><link rel="prefetch" href="/assets/js/27.fd478fd6.js"><link rel="prefetch" href="/assets/js/28.211d4aa6.js"><link rel="prefetch" href="/assets/js/29.5b060608.js"><link rel="prefetch" href="/assets/js/3.75220a5c.js"><link rel="prefetch" href="/assets/js/30.e24a6501.js"><link rel="prefetch" href="/assets/js/31.79b31301.js"><link rel="prefetch" href="/assets/js/32.743ba4bf.js"><link rel="prefetch" href="/assets/js/33.4fff5d91.js"><link rel="prefetch" href="/assets/js/34.ac036805.js"><link rel="prefetch" href="/assets/js/35.8021acce.js"><link rel="prefetch" href="/assets/js/36.469285e3.js"><link rel="prefetch" href="/assets/js/37.ea7464b1.js"><link rel="prefetch" href="/assets/js/38.be0f1986.js"><link rel="prefetch" href="/assets/js/39.42be918e.js"><link rel="prefetch" href="/assets/js/4.f5011ba2.js"><link rel="prefetch" href="/assets/js/40.ac571077.js"><link rel="prefetch" href="/assets/js/41.f593e342.js"><link rel="prefetch" href="/assets/js/42.bca3b705.js"><link rel="prefetch" href="/assets/js/43.f5070b9f.js"><link rel="prefetch" href="/assets/js/44.a3911525.js"><link rel="prefetch" href="/assets/js/45.b9fc883d.js"><link rel="prefetch" href="/assets/js/46.464c7e51.js"><link rel="prefetch" href="/assets/js/47.7807b8a1.js"><link rel="prefetch" href="/assets/js/48.d5ae16c3.js"><link rel="prefetch" href="/assets/js/49.6d24b07e.js"><link rel="prefetch" href="/assets/js/5.b582c580.js"><link rel="prefetch" href="/assets/js/50.4d1db70c.js"><link rel="prefetch" href="/assets/js/51.89065036.js"><link rel="prefetch" href="/assets/js/52.f308826a.js"><link rel="prefetch" href="/assets/js/53.f416c945.js"><link rel="prefetch" href="/assets/js/54.de986d56.js"><link rel="prefetch" href="/assets/js/55.a38a082e.js"><link rel="prefetch" href="/assets/js/56.1c42fbac.js"><link rel="prefetch" href="/assets/js/57.077a2b61.js"><link rel="prefetch" href="/assets/js/58.80d7cb5e.js"><link rel="prefetch" href="/assets/js/59.c2ee2cf4.js"><link rel="prefetch" href="/assets/js/6.52fc7c97.js"><link rel="prefetch" href="/assets/js/60.0bf8a1a7.js"><link rel="prefetch" href="/assets/js/61.1257ff7b.js"><link rel="prefetch" href="/assets/js/62.c41e8c91.js"><link rel="prefetch" href="/assets/js/63.39361554.js"><link rel="prefetch" href="/assets/js/64.597581ff.js"><link rel="prefetch" href="/assets/js/65.9e1a8d7c.js"><link rel="prefetch" href="/assets/js/66.334ddb5e.js"><link rel="prefetch" href="/assets/js/67.abb8980a.js"><link rel="prefetch" href="/assets/js/68.50d6ccbd.js"><link rel="prefetch" href="/assets/js/69.78adbe1e.js"><link rel="prefetch" href="/assets/js/7.069c08dd.js"><link rel="prefetch" href="/assets/js/70.b31703cd.js"><link rel="prefetch" href="/assets/js/71.ccd34bfc.js"><link rel="prefetch" href="/assets/js/72.a2477889.js"><link rel="prefetch" href="/assets/js/73.3c0a5fa3.js"><link rel="prefetch" href="/assets/js/74.e27d5da5.js"><link rel="prefetch" href="/assets/js/75.581bc1ad.js"><link rel="prefetch" href="/assets/js/76.1eb8f4e3.js"><link rel="prefetch" href="/assets/js/77.fdab5a7d.js"><link rel="prefetch" href="/assets/js/78.176ad3f1.js"><link rel="prefetch" href="/assets/js/79.a4feb4cd.js"><link rel="prefetch" href="/assets/js/8.5f8a95e5.js"><link rel="prefetch" href="/assets/js/80.74a9ea67.js"><link rel="prefetch" href="/assets/js/81.b475a94b.js"><link rel="prefetch" href="/assets/js/82.aa6cf5bc.js"><link rel="prefetch" href="/assets/js/83.3ef99db9.js"><link rel="prefetch" href="/assets/js/84.d93f9635.js"><link rel="prefetch" href="/assets/js/85.0e647886.js"><link rel="prefetch" href="/assets/js/86.dc078fed.js"><link rel="prefetch" href="/assets/js/87.975d4001.js"><link rel="prefetch" href="/assets/js/88.19f5ee6a.js"><link rel="prefetch" href="/assets/js/89.d6d84503.js"><link rel="prefetch" href="/assets/js/9.fc7a2252.js"><link rel="prefetch" href="/assets/js/90.6c1b5340.js"><link rel="prefetch" href="/assets/js/91.1f9f9747.js"><link rel="prefetch" href="/assets/js/92.d8d60a44.js"><link rel="prefetch" href="/assets/js/93.28110f57.js"><link rel="prefetch" href="/assets/js/94.f4c5cd90.js"><link rel="prefetch" href="/assets/js/95.afa19f49.js"><link rel="prefetch" href="/assets/js/96.abed696f.js"><link rel="prefetch" href="/assets/js/97.b4b650c9.js"><link rel="prefetch" href="/assets/js/98.7892a857.js"><link rel="prefetch" href="/assets/js/99.9c0aaa7c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="type-checking"><a href="#type-checking" class="header-anchor">#</a> Type Checking</h1> <blockquote><p>In Kotlin you can easily act on an object based on its type. Normally this activity is the domain of polymorphism, so <em>type checking</em> enables interesting design choices.</p></blockquote> <p>Traditionally, type checking is used for special cases. For example, the majority of insects can fly, but there are a tiny number that cannot. It doesn’t make sense to burden the <code>Insect</code> interface with the few insects that are unable to fly, so in <code>basic()</code> we use type checking to pick those out:</p> <div class="language- extra-class"><pre class="language-text"><code>// TypeChecking/Insects.kt
+package typechecking
+import atomictest.eq
+
+interface Insect {
+  fun walk() = &quot;$name: walk&quot;
+  fun fly() = &quot;$name: fly&quot;
+}
+
+class HouseFly : Insect
+
+class Flea : Insect {
+  override fun fly() =
+    throw Exception(&quot;Flea cannot fly&quot;)
+  fun crawl() = &quot;Flea: crawl&quot;
+}
+
+fun Insect.basic() =
+  walk() + &quot; &quot; +
+  if (this is Flea)
+    crawl()
+  else
+    fly()
+
+interface SwimmingInsect: Insect {
+  fun swim() = &quot;$name: swim&quot;
+}
+
+interface WaterWalker: Insect {
+  fun walkWater() =
+    &quot;$name: walk on water&quot;
+}
+
+class WaterBeetle : SwimmingInsect
+class WaterStrider : WaterWalker
+class WhirligigBeetle :
+  SwimmingInsect, WaterWalker
+
+fun Insect.water() =
+  when(this) {
+    is SwimmingInsect -&gt; swim()
+    is WaterWalker -&gt; walkWater()
+    else -&gt; &quot;$name: drown&quot;
+  }
+
+fun main() {
+  val insects = listOf(
+    HouseFly(), Flea(), WaterStrider(),
+    WaterBeetle(), WhirligigBeetle()
+  )
+  insects.map { it.basic() } eq
+    &quot;[HouseFly: walk HouseFly: fly, &quot; +
+    &quot;Flea: walk Flea: crawl, &quot; +
+    &quot;WaterStrider: walk WaterStrider: fly, &quot; +
+    &quot;WaterBeetle: walk WaterBeetle: fly, &quot; +
+    &quot;WhirligigBeetle: walk &quot; +
+    &quot;WhirligigBeetle: fly]&quot;
+  insects.map { it.water() } eq
+    &quot;[HouseFly: drown, Flea: drown, &quot; +
+    &quot;WaterStrider: walk on water, &quot; +
+    &quot;WaterBeetle: swim, &quot; +
+    &quot;WhirligigBeetle: swim]&quot;
+}
+</code></pre></div><p>There are also a very small number of insects that can walk on water or swim underwater. Again, it doesn’t make sense to put those special-case behaviors in the base class to support such a small fraction of types. Instead, <code>Insect.water()</code> contains a <code>when</code> expression that selects those subtypes for special behavior and assumes standard behavior for everything else.</p> <p>Selecting a few isolated types for special treatment is the typical use case for type checking. Notice that adding new types to the system doesn’t impact the existing code (unless a new type also requires special treatment).</p> <p>To simplify the code, <code>name</code> produces the type of the object pointed to by the <code>this</code> under question:</p> <div class="language- extra-class"><pre class="language-text"><code>// TypeChecking/AnyName.kt
+package typechecking
+
+val Any.name
+  get() = this::class.simpleName
+</code></pre></div><p><code>name</code> takes an <code>Any</code> and gets the associated class reference using <code>::class</code>, then produces the <code>simpleName</code> of that class.</p> <p>Now consider a variation of the “shape” example:</p> <div class="language- extra-class"><pre class="language-text"><code>// TypeChecking/TypeCheck1.kt
+package typechecking
+import atomictest.eq
+
+interface Shape {
+  fun draw(): String
+}
+
+class Circle : Shape {
+  override fun draw() = &quot;Circle: Draw&quot;
+}
+
+class Square : Shape {
+  override fun draw() = &quot;Square: Draw&quot;
+  fun rotate() = &quot;Square: Rotate&quot;
+}
+
+fun turn(s: Shape) = when(s) {
+  is Square -&gt; s.rotate()
+  else -&gt; &quot;&quot;
+}
+
+fun main() {
+  val shapes = listOf(Circle(), Square())
+  shapes.map { it.draw() } eq
+    &quot;[Circle: Draw, Square: Draw]&quot;
+  shapes.map { turn(it) } eq
+    &quot;[, Square: Rotate]&quot;
+}
+</code></pre></div><p>There are several reasons why you might add <code>rotate()</code> to <code>Square</code> instead of <code>Shape</code>:</p> <ul><li>The <code>Shape</code> interface is out of your control, so you cannot modify it.</li> <li>Rotating <code>Square</code> seems like a special case that shouldn’t burden and/or complicate the <code>Shape</code> interface.</li> <li>You’re just trying to quickly solve a problem by adding <code>Square</code> and you don’t want to take the trouble of putting <code>rotate()</code> in <code>Shape</code> and implementing it in all the subtypes.</li></ul> <p>There are certainly situations when this solution doesn’t negatively impact your design, and Kotlin’s <code>when</code> produces clean and straightforward code.</p> <p>If, however, you must evolve your system by adding more types, it begins to get messy:</p> <div class="language- extra-class"><pre class="language-text"><code>// TypeChecking/TypeCheck2.kt
+package typechecking
+import atomictest.eq
+
+class Triangle : Shape {
+  override fun draw() = &quot;Triangle: Draw&quot;
+  fun rotate() = &quot;Triangle: Rotate&quot;
+}
+
+fun turn2(s: Shape) = when(s) {
+  is Square -&gt; s.rotate()
+  is Triangle -&gt; s.rotate()
+  else -&gt; &quot;&quot;
+}
+
+fun main() {
+  val shapes =
+    listOf(Circle(), Square(), Triangle())
+  shapes.map { it.draw() } eq
+    &quot;[Circle: Draw, Square: Draw, &quot; +
+    &quot;Triangle: Draw]&quot;
+  shapes.map { turn(it) } eq
+    &quot;[, Square: Rotate, ]&quot;
+  shapes.map { turn2(it) } eq
+    &quot;[, Square: Rotate, Triangle: Rotate]&quot;
+}
+</code></pre></div><p>The polymorphic call in <code>shapes.map { it.draw() }</code> adapts to the new <code>Triangle</code> class without any changes or errors. Also, Kotlin disallows <code>Triangle</code> unless it implements <code>draw()</code>.</p> <p>The original <code>turn()</code> doesn’t break when we add <code>Triangle</code>, but it also doesn’t produce the result we want. <code>turn()</code> must become <code>turn2()</code> to generate the desired behavior.</p> <p>Suppose your system begins to accumulate more functions like <code>turn()</code>. The <code>Shape</code> logic is now distributed across all these functions, rather than being centralized within the <code>Shape</code> hierarchy. If you add more new types of <code>Shape</code>, you must search for every function containing a <code>when</code> that switches on a <code>Shape</code> type, and modify it to include the new case. If you miss any of these functions, the compiler won’t catch it.</p> <p><code>turn()</code> and <code>turn2()</code> exhibit what is often called <em>type-check coding</em>, which means testing for every type in your system. (If you are only looking for one or a few special types it is not usually considered type-check coding).</p> <p>In traditional object-oriented languages, type-check coding is usually considered an antipattern because it invites the creation of one or more pieces of code that must be vigilantly maintained and updated whenever you add or change types in your system. Polymorphism, on the other hand, encapsulates those changes into the types that you add or modify, and those changes are then transparently propagated through your system.</p> <p>Note that the problem only occurs when the system needs to evolve by adding more <code>Shape</code> types. If that’s not how your system evolves, you won’t encounter the issue. If it is a problem it doesn’t usually happen suddenly, but becomes steadily more difficult as your system evolves.</p> <p>We shall see that Kotlin significantly mitigates this problem through the use of <code>sealed</code> classes. The solution isn’t perfect, but type checking becomes a much more reasonable design choice.</p> <h3 id="type-checking-in-auxiliary-functions"><a href="#type-checking-in-auxiliary-functions" class="header-anchor">#</a> Type Checking in Auxiliary Functions</h3> <p>The essence of a <code>BeverageContainer</code> is that it holds and delivers beverages. It seems to make sense to treat recycling as an auxiliary function:</p> <div class="language- extra-class"><pre class="language-text"><code>// TypeChecking/BeverageContainer.kt
+package typechecking
+import atomictest.eq
+
+interface BeverageContainer {
+  fun open(): String
+  fun pour(): String
+}
+
+class Can : BeverageContainer {
+  override fun open() = &quot;Pop Top&quot;
+  override fun pour() = &quot;Can: Pour&quot;
+}
+
+open class Bottle : BeverageContainer {
+  override fun open() = &quot;Remove Cap&quot;
+  override fun pour() = &quot;Bottle: Pour&quot;
+}
+
+class GlassBottle : Bottle()
+class PlasticBottle : Bottle()
+
+fun BeverageContainer.recycle() =
+  when(this) {
+    is Can -&gt; &quot;Recycle Can&quot;
+    is GlassBottle -&gt; &quot;Recycle Glass&quot;
+    else -&gt; &quot;Landfill&quot;
+  }
+
+fun main() {
+  val refrigerator = listOf(
+    Can(), GlassBottle(), PlasticBottle()
+  )
+  refrigerator.map { it.open() } eq
+    &quot;[Pop Top, Remove Cap, Remove Cap]&quot;
+  refrigerator.map { it.recycle() } eq
+    &quot;[Recycle Can, Recycle Glass, &quot; +
+    &quot;Landfill]&quot;
+}
+</code></pre></div><p>By defining <code>recycle()</code> as an auxiliary function it captures the different recycling behaviors in a single place, rather than having them distributed throughout the <code>BeverageContainer</code> hierarchy by making <code>recycle()</code> a member function.</p> <p>Acting on types with <code>when</code> is clean and straightforward, but the design is still problematic. When you add a new type, <code>recycle()</code> quietly uses the <code>else</code> clause. Because of this, necessary changes to type-checking functions like <code>recycle()</code> might be missed. What we’d like is for the compiler to tell us that we’ve forgotten a type check, just as it does when we implement an interface or inherit an <code>abstract</code> class and it tells us we’ve forgotten to override a function.</p> <p><code>sealed</code> classes provide a significant improvement here. Making <code>Shape</code> a <code>sealed</code> class means that the <code>when</code> in <code>turn()</code> (after removing the <code>else</code>) requires that each type be checked. Interfaces cannot be <code>sealed</code> so we must rewrite <code>Shape</code> into a class:</p> <div class="language- extra-class"><pre class="language-text"><code>// TypeChecking/TypeCheck3.kt
+package typechecking3
+import atomictest.eq
+import typechecking.name
+
+sealed class Shape {
+  fun draw() = &quot;$name: Draw&quot;
+}
+
+class Circle : Shape()
+
+class Square : Shape() {
+  fun rotate() = &quot;Square: Rotate&quot;
+}
+
+class Triangle : Shape() {
+  fun rotate() = &quot;Triangle: Rotate&quot;
+}
+
+fun turn(s: Shape) = when(s) {
+  is Circle -&gt; &quot;&quot;
+  is Square -&gt; s.rotate()
+  is Triangle -&gt; s.rotate()
+}
+
+fun main() {
+  val shapes = listOf(Circle(), Square())
+  shapes.map { it.draw() } eq
+    &quot;[Circle: Draw, Square: Draw]&quot;
+  shapes.map { turn(it) } eq
+    &quot;[, Square: Rotate]&quot;
+}
+</code></pre></div><p>If we add a new <code>Shape</code>, the compiler tells us to add a new type-check path in <code>turn()</code>.</p> <p>But let’s look at what happens when we try to apply <code>sealed</code> to the <code>BeverageContainer</code> problem. In the process, we create additional <code>Can</code> and <code>Bottle</code> subtypes:</p> <div class="language- extra-class"><pre class="language-text"><code>// TypeChecking/BeverageContainer2.kt
+package typechecking2
+import atomictest.eq
+
+sealed class BeverageContainer {
+  abstract fun open(): String
+  abstract fun pour(): String
+}
+
+sealed class Can : BeverageContainer() {
+  override fun open() = &quot;Pop Top&quot;
+  override fun pour() = &quot;Can: Pour&quot;
+}
+
+class SteelCan : Can()
+class AluminumCan : Can()
+
+sealed class Bottle : BeverageContainer() {
+  override fun open() = &quot;Remove Cap&quot;
+  override fun pour() = &quot;Bottle: Pour&quot;
+}
+
+class GlassBottle : Bottle()
+sealed class PlasticBottle : Bottle()
+class PETBottle : PlasticBottle()
+class HDPEBottle : PlasticBottle()
+
+fun BeverageContainer.recycle() =
+  when(this) {
+    is Can -&gt; &quot;Recycle Can&quot;
+    is Bottle -&gt; &quot;Recycle Bottle&quot;
+  }
+
+fun BeverageContainer.recycle2() =
+  when(this) {
+    is Can -&gt; when(this) {
+      is SteelCan -&gt; &quot;Recycle Steel&quot;
+      is AluminumCan -&gt; &quot;Recycle Aluminum&quot;
+    }
+    is Bottle -&gt; when(this) {
+      is GlassBottle -&gt; &quot;Recycle Glass&quot;
+      is PlasticBottle -&gt; when(this) {
+        is PETBottle -&gt; &quot;Recycle PET&quot;
+        is HDPEBottle -&gt; &quot;Recycle HDPE&quot;
+      }
+    }
+  }
+
+fun main() {
+  val refrigerator = listOf(
+    SteelCan(), AluminumCan(),
+    GlassBottle(),
+    PETBottle(), HDPEBottle()
+  )
+  refrigerator.map { it.open() } eq
+    &quot;[Pop Top, Pop Top, Remove Cap, &quot; +
+    &quot;Remove Cap, Remove Cap]&quot;
+  refrigerator.map { it.recycle() } eq
+    &quot;[Recycle Can, Recycle Can, &quot; +
+    &quot;Recycle Bottle, Recycle Bottle, &quot; +
+    &quot;Recycle Bottle]&quot;
+  refrigerator.map { it.recycle2() } eq
+    &quot;[Recycle Steel, Recycle Aluminum, &quot; +
+    &quot;Recycle Glass, &quot; +
+    &quot;Recycle PET, Recycle HDPE]&quot;
+}
+</code></pre></div><p>Note that the intermediate classes <code>Can</code> and <code>Bottle</code> must also be <code>sealed</code> for this approach to work.</p> <p>As long as the classes are direct subclasses of <code>BeverageContainer</code>, the compiler guarantees that the <code>when</code> in <code>recycle()</code> is exhaustive. But subclasses like <code>GlassBottle</code> and <code>AluminumCan</code> are not checked. To solve the problem we must explicitly include the nested <code>when</code> expressions seen in <code>recycle2()</code>, at which point the compiler <em>does</em> require exhaustive type checks (try commenting one of the specific <code>Can</code> or <code>Bottle</code> types to verify this).</p> <p>To create a robust type-checking solution you must rigorously use <code>sealed</code> at each intermediate level of the class hierarchy, while ensuring that each level of subclasses has a corresponding nested <code>when</code>. In this case, if you add a new subtype of <code>Can</code> or <code>Bottle</code> the compiler ensures that <code>recycle2()</code> tests for each subtype.</p> <p>Although not as clean as polymorphism, this is a significant improvement over prior object-oriented languages, and allows you to choose whether to write a polymorphic member function or auxiliary function. Notice that this problem only occurs when you have multiple levels of inheritance.</p> <p>For comparison, let’s rewrite <code>BeverageContainer2.kt</code> by bringing <code>recycle()</code> into <code>BeverageContainer</code>, which can again be an <code>interface</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// TypeChecking/BeverageContainer3.kt
+package typechecking3
+import atomictest.eq
+import typechecking.name
+
+interface BeverageContainer {
+  fun open(): String
+  fun pour() = &quot;$name: Pour&quot;
+  fun recycle(): String
+}
+
+abstract class Can : BeverageContainer {
+  override fun open() = &quot;Pop Top&quot;
+}
+
+class SteelCan : Can() {
+  override fun recycle() = &quot;Recycle Steel&quot;
+}
+
+class AluminumCan : Can() {
+  override fun recycle() = &quot;Recycle Aluminum&quot;
+}
+
+abstract class Bottle : BeverageContainer {
+  override fun open() = &quot;Remove Cap&quot;
+}
+
+class GlassBottle : Bottle() {
+  override fun recycle() = &quot;Recycle Glass&quot;
+}
+
+abstract class PlasticBottle : Bottle()
+
+class PETBottle : PlasticBottle() {
+  override fun recycle() = &quot;Recycle PET&quot;
+}
+
+class HDPEBottle : PlasticBottle() {
+  override fun recycle() = &quot;Recycle HDPE&quot;
+}
+
+fun main() {
+  val refrigerator = listOf(
+    SteelCan(), AluminumCan(),
+    GlassBottle(),
+    PETBottle(), HDPEBottle()
+  )
+  refrigerator.map { it.open() } eq
+    &quot;[Pop Top, Pop Top, Remove Cap, &quot; +
+    &quot;Remove Cap, Remove Cap]&quot;
+  refrigerator.map { it.recycle() } eq
+    &quot;[Recycle Steel, Recycle Aluminum, &quot; +
+    &quot;Recycle Glass, &quot; +
+    &quot;Recycle PET, Recycle HDPE]&quot;
+}
+</code></pre></div><p>By making <code>Can</code> and <code>Bottle</code> <code>abstract</code> classes, we force their subclasses to override <code>recycle()</code> in the same way that the compiler forces each type to be checked inside <code>recycle2()</code> in <code>BeverageContainer2.kt</code>.</p> <p>Now the behavior of <code>recycle()</code> is distributed among the classes, which might be fine—it’s  a design decision. If you decide that recycling behavior changes often and you’d like to have it all in one place, then using the auxiliary type-checked <code>recycle2()</code> from <code>BeverageContainer2.kt</code> might be a better choice for your needs, and Kotlin’s features make that reasonable.</p> <p><em><strong>Exercises and solutions can be found at www.AtomicKotlin.com.</strong></em></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.885421c5.js" defer></script><script src="/assets/js/2.63033d72.js" defer></script><script src="/assets/js/184.d172410d.js" defer></script>
+  </body>
+</html>

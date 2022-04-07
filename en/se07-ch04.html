@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Operator Overloading</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.885421c5.js" as="script"><link rel="preload" href="/assets/js/2.63033d72.js" as="script"><link rel="preload" href="/assets/js/111.ccb021d8.js" as="script"><link rel="prefetch" href="/assets/js/10.0b3c205e.js"><link rel="prefetch" href="/assets/js/100.96b937c1.js"><link rel="prefetch" href="/assets/js/101.307416f3.js"><link rel="prefetch" href="/assets/js/102.ad03aa52.js"><link rel="prefetch" href="/assets/js/103.f62a5b6a.js"><link rel="prefetch" href="/assets/js/104.af54bf4a.js"><link rel="prefetch" href="/assets/js/105.7e28a867.js"><link rel="prefetch" href="/assets/js/106.f43671e2.js"><link rel="prefetch" href="/assets/js/107.193e626f.js"><link rel="prefetch" href="/assets/js/108.48f6a137.js"><link rel="prefetch" href="/assets/js/109.cd1a3844.js"><link rel="prefetch" href="/assets/js/11.44430f62.js"><link rel="prefetch" href="/assets/js/110.1dd502da.js"><link rel="prefetch" href="/assets/js/112.75e535d0.js"><link rel="prefetch" href="/assets/js/113.bfe1eaad.js"><link rel="prefetch" href="/assets/js/114.521ecc45.js"><link rel="prefetch" href="/assets/js/115.848462f3.js"><link rel="prefetch" href="/assets/js/116.f7937681.js"><link rel="prefetch" href="/assets/js/117.d00e5088.js"><link rel="prefetch" href="/assets/js/118.fd0e9def.js"><link rel="prefetch" href="/assets/js/119.c64902aa.js"><link rel="prefetch" href="/assets/js/12.d9d3b76c.js"><link rel="prefetch" href="/assets/js/120.c029eaac.js"><link rel="prefetch" href="/assets/js/121.17f7bf8c.js"><link rel="prefetch" href="/assets/js/122.a46a015c.js"><link rel="prefetch" href="/assets/js/123.bd8273f5.js"><link rel="prefetch" href="/assets/js/124.f0266688.js"><link rel="prefetch" href="/assets/js/125.23db0445.js"><link rel="prefetch" href="/assets/js/126.6c8e4b81.js"><link rel="prefetch" href="/assets/js/127.58121e7c.js"><link rel="prefetch" href="/assets/js/128.e81625d0.js"><link rel="prefetch" href="/assets/js/129.2086e255.js"><link rel="prefetch" href="/assets/js/13.02f01f86.js"><link rel="prefetch" href="/assets/js/130.358aa726.js"><link rel="prefetch" href="/assets/js/131.2db58096.js"><link rel="prefetch" href="/assets/js/132.bcbdada5.js"><link rel="prefetch" href="/assets/js/133.2c908f82.js"><link rel="prefetch" href="/assets/js/134.eade1bde.js"><link rel="prefetch" href="/assets/js/135.b89936b5.js"><link rel="prefetch" href="/assets/js/136.e88a267d.js"><link rel="prefetch" href="/assets/js/137.61035549.js"><link rel="prefetch" href="/assets/js/138.f89fbe70.js"><link rel="prefetch" href="/assets/js/139.771cd71c.js"><link rel="prefetch" href="/assets/js/14.7f3bb0b0.js"><link rel="prefetch" href="/assets/js/140.34a95e86.js"><link rel="prefetch" href="/assets/js/141.ec95bcce.js"><link rel="prefetch" href="/assets/js/142.13e1ee8e.js"><link rel="prefetch" href="/assets/js/143.1aa42e4b.js"><link rel="prefetch" href="/assets/js/144.37aab2b7.js"><link rel="prefetch" href="/assets/js/145.be3bc861.js"><link rel="prefetch" href="/assets/js/146.e5d674e1.js"><link rel="prefetch" href="/assets/js/147.58aec8b2.js"><link rel="prefetch" href="/assets/js/148.2b890544.js"><link rel="prefetch" href="/assets/js/149.abf23b17.js"><link rel="prefetch" href="/assets/js/15.9ee435da.js"><link rel="prefetch" href="/assets/js/150.294e67e5.js"><link rel="prefetch" href="/assets/js/151.0a384fa7.js"><link rel="prefetch" href="/assets/js/152.fdcc22f9.js"><link rel="prefetch" href="/assets/js/153.9da97a5a.js"><link rel="prefetch" href="/assets/js/154.9d75aa68.js"><link rel="prefetch" href="/assets/js/155.cb639e66.js"><link rel="prefetch" href="/assets/js/156.bac15746.js"><link rel="prefetch" href="/assets/js/157.59912327.js"><link rel="prefetch" href="/assets/js/158.70b73dcc.js"><link rel="prefetch" href="/assets/js/159.e88d2e22.js"><link rel="prefetch" href="/assets/js/16.35e658e9.js"><link rel="prefetch" href="/assets/js/160.f139525d.js"><link rel="prefetch" href="/assets/js/161.a37a29b7.js"><link rel="prefetch" href="/assets/js/162.6f5d3003.js"><link rel="prefetch" href="/assets/js/163.14aa422f.js"><link rel="prefetch" href="/assets/js/164.4b33e948.js"><link rel="prefetch" href="/assets/js/165.fb54ffee.js"><link rel="prefetch" href="/assets/js/166.041ac020.js"><link rel="prefetch" href="/assets/js/167.afa2fc40.js"><link rel="prefetch" href="/assets/js/168.e8dd5ce6.js"><link rel="prefetch" href="/assets/js/169.c6f23778.js"><link rel="prefetch" href="/assets/js/17.75911907.js"><link rel="prefetch" href="/assets/js/170.845b5d59.js"><link rel="prefetch" href="/assets/js/171.7e3dcda3.js"><link rel="prefetch" href="/assets/js/172.2d115602.js"><link rel="prefetch" href="/assets/js/173.872cef97.js"><link rel="prefetch" href="/assets/js/174.2ba2ca5e.js"><link rel="prefetch" href="/assets/js/175.dc1b572f.js"><link rel="prefetch" href="/assets/js/176.7692d4c3.js"><link rel="prefetch" href="/assets/js/177.22d1ef39.js"><link rel="prefetch" href="/assets/js/178.392431b3.js"><link rel="prefetch" href="/assets/js/179.31375329.js"><link rel="prefetch" href="/assets/js/18.e1886c50.js"><link rel="prefetch" href="/assets/js/180.eab449ae.js"><link rel="prefetch" href="/assets/js/181.de02433a.js"><link rel="prefetch" href="/assets/js/182.69f2a2ac.js"><link rel="prefetch" href="/assets/js/183.a7c29149.js"><link rel="prefetch" href="/assets/js/184.d172410d.js"><link rel="prefetch" href="/assets/js/185.55f5cb3b.js"><link rel="prefetch" href="/assets/js/186.fe28ccd6.js"><link rel="prefetch" href="/assets/js/187.7078cb3a.js"><link rel="prefetch" href="/assets/js/188.33d16ad2.js"><link rel="prefetch" href="/assets/js/189.429e8408.js"><link rel="prefetch" href="/assets/js/19.0c100fc8.js"><link rel="prefetch" href="/assets/js/190.9fc52549.js"><link rel="prefetch" href="/assets/js/191.579656e4.js"><link rel="prefetch" href="/assets/js/192.1faeacc0.js"><link rel="prefetch" href="/assets/js/193.26b1f939.js"><link rel="prefetch" href="/assets/js/194.7b06da95.js"><link rel="prefetch" href="/assets/js/195.99cc7e20.js"><link rel="prefetch" href="/assets/js/196.1ea3220f.js"><link rel="prefetch" href="/assets/js/197.3738ecaa.js"><link rel="prefetch" href="/assets/js/198.b5f0dcb0.js"><link rel="prefetch" href="/assets/js/199.4c37b475.js"><link rel="prefetch" href="/assets/js/20.d3ec4ffd.js"><link rel="prefetch" href="/assets/js/200.d0f3b502.js"><link rel="prefetch" href="/assets/js/201.56c48b30.js"><link rel="prefetch" href="/assets/js/202.dc7fe2ea.js"><link rel="prefetch" href="/assets/js/203.2e7e7f17.js"><link rel="prefetch" href="/assets/js/204.71fe20bf.js"><link rel="prefetch" href="/assets/js/205.41b84b9d.js"><link rel="prefetch" href="/assets/js/206.cdc16e15.js"><link rel="prefetch" href="/assets/js/21.718b7fbf.js"><link rel="prefetch" href="/assets/js/22.3ae17164.js"><link rel="prefetch" href="/assets/js/23.ad0a6015.js"><link rel="prefetch" href="/assets/js/24.4487bebb.js"><link rel="prefetch" href="/assets/js/25.41a5d823.js"><link rel="prefetch" href="/assets/js/26.4e51890f.js"><link rel="prefetch" href="/assets/js/27.fd478fd6.js"><link rel="prefetch" href="/assets/js/28.211d4aa6.js"><link rel="prefetch" href="/assets/js/29.5b060608.js"><link rel="prefetch" href="/assets/js/3.75220a5c.js"><link rel="prefetch" href="/assets/js/30.e24a6501.js"><link rel="prefetch" href="/assets/js/31.79b31301.js"><link rel="prefetch" href="/assets/js/32.743ba4bf.js"><link rel="prefetch" href="/assets/js/33.4fff5d91.js"><link rel="prefetch" href="/assets/js/34.ac036805.js"><link rel="prefetch" href="/assets/js/35.8021acce.js"><link rel="prefetch" href="/assets/js/36.469285e3.js"><link rel="prefetch" href="/assets/js/37.ea7464b1.js"><link rel="prefetch" href="/assets/js/38.be0f1986.js"><link rel="prefetch" href="/assets/js/39.42be918e.js"><link rel="prefetch" href="/assets/js/4.f5011ba2.js"><link rel="prefetch" href="/assets/js/40.ac571077.js"><link rel="prefetch" href="/assets/js/41.f593e342.js"><link rel="prefetch" href="/assets/js/42.bca3b705.js"><link rel="prefetch" href="/assets/js/43.f5070b9f.js"><link rel="prefetch" href="/assets/js/44.a3911525.js"><link rel="prefetch" href="/assets/js/45.b9fc883d.js"><link rel="prefetch" href="/assets/js/46.464c7e51.js"><link rel="prefetch" href="/assets/js/47.7807b8a1.js"><link rel="prefetch" href="/assets/js/48.d5ae16c3.js"><link rel="prefetch" href="/assets/js/49.6d24b07e.js"><link rel="prefetch" href="/assets/js/5.b582c580.js"><link rel="prefetch" href="/assets/js/50.4d1db70c.js"><link rel="prefetch" href="/assets/js/51.89065036.js"><link rel="prefetch" href="/assets/js/52.f308826a.js"><link rel="prefetch" href="/assets/js/53.f416c945.js"><link rel="prefetch" href="/assets/js/54.de986d56.js"><link rel="prefetch" href="/assets/js/55.a38a082e.js"><link rel="prefetch" href="/assets/js/56.1c42fbac.js"><link rel="prefetch" href="/assets/js/57.077a2b61.js"><link rel="prefetch" href="/assets/js/58.80d7cb5e.js"><link rel="prefetch" href="/assets/js/59.c2ee2cf4.js"><link rel="prefetch" href="/assets/js/6.52fc7c97.js"><link rel="prefetch" href="/assets/js/60.0bf8a1a7.js"><link rel="prefetch" href="/assets/js/61.1257ff7b.js"><link rel="prefetch" href="/assets/js/62.c41e8c91.js"><link rel="prefetch" href="/assets/js/63.39361554.js"><link rel="prefetch" href="/assets/js/64.597581ff.js"><link rel="prefetch" href="/assets/js/65.9e1a8d7c.js"><link rel="prefetch" href="/assets/js/66.334ddb5e.js"><link rel="prefetch" href="/assets/js/67.abb8980a.js"><link rel="prefetch" href="/assets/js/68.50d6ccbd.js"><link rel="prefetch" href="/assets/js/69.78adbe1e.js"><link rel="prefetch" href="/assets/js/7.069c08dd.js"><link rel="prefetch" href="/assets/js/70.b31703cd.js"><link rel="prefetch" href="/assets/js/71.ccd34bfc.js"><link rel="prefetch" href="/assets/js/72.a2477889.js"><link rel="prefetch" href="/assets/js/73.3c0a5fa3.js"><link rel="prefetch" href="/assets/js/74.e27d5da5.js"><link rel="prefetch" href="/assets/js/75.581bc1ad.js"><link rel="prefetch" href="/assets/js/76.1eb8f4e3.js"><link rel="prefetch" href="/assets/js/77.fdab5a7d.js"><link rel="prefetch" href="/assets/js/78.176ad3f1.js"><link rel="prefetch" href="/assets/js/79.a4feb4cd.js"><link rel="prefetch" href="/assets/js/8.5f8a95e5.js"><link rel="prefetch" href="/assets/js/80.74a9ea67.js"><link rel="prefetch" href="/assets/js/81.b475a94b.js"><link rel="prefetch" href="/assets/js/82.aa6cf5bc.js"><link rel="prefetch" href="/assets/js/83.3ef99db9.js"><link rel="prefetch" href="/assets/js/84.d93f9635.js"><link rel="prefetch" href="/assets/js/85.0e647886.js"><link rel="prefetch" href="/assets/js/86.dc078fed.js"><link rel="prefetch" href="/assets/js/87.975d4001.js"><link rel="prefetch" href="/assets/js/88.19f5ee6a.js"><link rel="prefetch" href="/assets/js/89.d6d84503.js"><link rel="prefetch" href="/assets/js/9.fc7a2252.js"><link rel="prefetch" href="/assets/js/90.6c1b5340.js"><link rel="prefetch" href="/assets/js/91.1f9f9747.js"><link rel="prefetch" href="/assets/js/92.d8d60a44.js"><link rel="prefetch" href="/assets/js/93.28110f57.js"><link rel="prefetch" href="/assets/js/94.f4c5cd90.js"><link rel="prefetch" href="/assets/js/95.afa19f49.js"><link rel="prefetch" href="/assets/js/96.abed696f.js"><link rel="prefetch" href="/assets/js/97.b4b650c9.js"><link rel="prefetch" href="/assets/js/98.7892a857.js"><link rel="prefetch" href="/assets/js/99.9c0aaa7c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="operator-overloading"><a href="#operator-overloading" class="header-anchor">#</a> Operator Overloading</h1> <blockquote><p>In the context of computer programming, <em>overloading</em> means “adding extra meaning to something that already exists.”</p></blockquote> <p><em>Operator overloading</em> allows you to take an operator like <code>+</code> and give it meaning for your new type, or extra meaning for an existing type.</p> <p>Operator overloading has a tumultuous past. It was popularized in C++, but because C++ had no garbage collection, writing overloaded operators was difficult. As a result, the early Java designers deemed operator overloading “bad” and didn’t allow it in Java, even though Java’s garbage collection would have made it relatively easy. The simplicity of operator overloading when supported by garbage collection was demonstrated in the Python language, which constrained you to a limited (familiar) set of operators, as did C++. Scala then experimented with allowing you to invent your own operators, causing some programmers to abuse this feature and create incomprehensible code. Kotlin learned from these languages, and has simplified the process of operator overloading but restricts your choices to a reasonable and familiar set of operators. In addition, the rules of operator precedence cannot be changed.</p> <p>We’ll create a small class <code>Num</code> and add an overloaded <code>+</code> as an extension function. To overload an operator you use the <code>operator</code> keyword before <code>fun</code>, followed by the special predefined function name for that operator. For example, the special function name for the <code>+</code> operator is <code>plus()</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Num.kt
+package operatoroverloading
+import atomictest.eq
+
+data class Num(val n: Int)
+
+operator fun Num.plus(rval: Num) =
+  Num(n + rval.n)
+
+fun main() {
+  Num(4) + Num(5) eq Num(9)
+  Num(4).plus(Num(5)) eq Num(9)
+}
+</code></pre></div><p>If you were defining a normal (non-operator) function for use between two operands, you’d use the <code>infix</code> keyword, but operators are already <code>infix</code>. Because <code>plus()</code> is an ordinary function, you can also call it in the conventional way.</p> <p>When you define an operator as a member function, you can access <code>private</code> elements in a class that an extension function cannot:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/MemberOperator.kt
+package operatoroverloading
+import atomictest.eq
+
+data class Num2(private val n: Int) {
+  operator fun plus(rval: Num2) =
+    Num2(n + rval.n)
+}
+
+// Cannot access 'n': it is private in 'Num2':
+// operator fun Num2.minus(rval: Num2) =
+//   Num2(n - rval.n)
+
+fun main() {
+  Num2(4) + Num2(5) eq Num2(9)
+}
+</code></pre></div><p>In some contexts it’s helpful to create special meaning for an operator. Here, we model a <code>Molecule</code> with a <code>+</code> that attaches it to another <code>Molecule</code>. The <code>attached</code> property is the link between <code>Molecule</code>s:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Molecule.kt
+package operatoroverloading
+import atomictest.eq
+
+data class Molecule(
+  val id: Int = idCount++,
+  var attached: Molecule? = null
+) {
+  companion object {
+    private var idCount = 0
+  }
+  operator fun plus(other: Molecule) {
+    attached = other
+  }
+}
+
+fun main() {
+  val m1 = Molecule()
+  val m2 = Molecule()
+  m1 + m2                       // [1]
+  m1 eq &quot;Molecule(id=0, attached=&quot; +
+    &quot;Molecule(id=1, attached=null))&quot;
+}
+</code></pre></div><ul><li><strong>[1]</strong> Reads like a familiar math expression, but to the person using the model it might be an especially meaningful syntax.</li></ul> <p>This example is incomplete; if you add the line <code>m2 + m1</code>, then try to display <code>m2</code>, you’ll get a stack overflow (can you fix the problem?).</p> <h3 id="equality"><a href="#equality" class="header-anchor">#</a> Equality</h3> <p>Invoking <code>==</code> (equality) or <code>!=</code> (inequality) calls the <code>equals()</code> member function. <code>data</code> classes automatically redefine <code>equals()</code> to compare the stored data, but if you don’t redefine <code>equals()</code> for non-<code>data</code> classes, the default version compares references rather than contents:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/DefaultEquality.kt
+package operatoroverloading
+import atomictest.eq
+
+class A(val i: Int)
+data class D(val i: Int)
+
+fun main() {
+  // Normal class:
+  val a = A(1)
+  val b = A(1)
+  val c = a
+  (a == b) eq false
+  (a == c) eq true
+  // Data class:
+  val d = D(1)
+  val e = D(1)
+  (d == e) eq true
+}
+</code></pre></div><p><code>a</code> and <code>b</code> refer to different objects in memory, so the references are different and <code>a == b</code> is <code>false</code>, even though the two objects store identical data. <code>a</code> and <code>c</code> refer to the same object in memory, so comparing them produces <code>true</code>. Because the <code>data class D</code> automatically generates an <code>equals()</code> that looks at the contents of <code>D</code>, <code>d == e</code> produces <code>true</code>.</p> <p><code>equals()</code> is the only operator that cannot be an extension function; it must be overridden as a member function. When defining your own <code>equals()</code>, you are overriding the default <code>equals(other: Any?)</code>. Notice that the type of <code>other</code> is <code>Any?</code> rather than the specific type of your class. This allows you to compare your type with other types, which means you must choose the types allowed for comparison:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/DefiningEquality.kt
+package operatoroverloading
+import atomictest.eq
+
+class E(var v: Int) {
+  override fun equals(other: Any?) = when {
+    this === other -&gt; true           // [1]
+    other !is E -&gt; false             // [2]
+    else -&gt; v == other.v             // [3]
+  }
+  override fun hashCode(): Int = v
+  override fun toString() = &quot;E($v)&quot;
+}
+
+fun main() {
+  val a = E(1)
+  val b = E(2)
+  (a == b) eq false   // a.equals(b)
+  (a != b) eq true    // !a.equals(b)
+  // Reference equality:
+  (E(1) === E(1)) eq false
+}
+</code></pre></div><ul><li><strong>[1]</strong> This is an optimization: if <code>other</code> refers to the same object in memory, the result is automatically <code>true</code>. The triple equality symbol <code>===</code> tests for reference equality.</li> <li><strong>[2]</strong> This determines that the type of <code>other</code> must be the same as the current type. For <code>E</code> to be compared to other types, add further match expressions.</li> <li><strong>[3]</strong> This compares the stored data. At this point the compiler knows that <code>other</code> is of type <code>E</code>, so we can access <code>other.v</code> without a cast.</li></ul> <p>When overriding <code>equals()</code> you should also override <code>hashCode()</code>. This is a complex topic, but the basic rule is that if two objects are equal, they must produce the same <code>hashCode()</code> value. Standard data structures like <code>Map</code> and <code>Set</code> will fail without this rule. Things get even more complicated with an <code>open</code> class because you must compare an instance with all possible subclasses. You can learn more about the concept of hashing in <a href="https://en.wikipedia.org/wiki/Hash_function" target="_blank" rel="noopener noreferrer">Wikipedia<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</p> <p>Defining a proper <code>equals()</code> and <code>hashCode()</code> is beyond the scope of this book—what we do here illustrates the concept and works for our simple example but won’t work for more complicated cases. This complexity is the reason that <code>data</code> classes create their own <code>equals()</code> and <code>hashCode()</code>. If you must define your own <code>equals()</code> and <code>hashCode()</code>, we recommend automatically generating them using IntelliJ IDEA or Android Studio with the action <a href="https://www.jetbrains.com/help/idea/generating-code.html#generate-equals-hashcode" target="_blank" rel="noopener noreferrer"><code>Generate -&gt; equals and hashCode</code><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</p> <p>When you compare nullable objects using <code>==</code>, Kotlin enforces <code>null</code>-checking. This can be achieved using either <code>if</code> or the Elvis operator:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/EqualsForNullable.kt
+package operatoroverloading
+import atomictest.eq
+
+fun equalsWithIf(a: E?, b: E?) =
+  if (a === null)
+    b === null
+  else
+    a == b
+
+fun equalsWithElvis(a: E?, b: E?) =
+  a?.equals(b) ?: (b === null)
+
+fun main() {
+  val x: E? = null
+  val y = E(0)
+  val z: E? = null
+  (x == y) eq false
+  (x == z) eq true
+  equalsWithIf(x, y) eq false
+  equalsWithIf(x, z) eq true
+  equalsWithElvis(x, y) eq false
+  equalsWithElvis(x, z) eq true
+}
+</code></pre></div><p><code>equalsWithIf()</code> first checks to see if the reference <code>a</code> is <code>null</code>, in which case the only way the two can be equal is if the reference <code>b</code> is also <code>null</code>. If <code>a</code> is not a <code>null</code> reference, the member <code>equals()</code> is used to compare the two. <code>equalsWithElvis()</code> achieves the same effect, but more succinctly using both <code>?.</code> and <code>?:</code>.</p> <h3 id="arithmetic-operators"><a href="#arithmetic-operators" class="header-anchor">#</a> Arithmetic operators</h3> <p>We can define basic arithmetic operators as extensions to <code>class E</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/ArithmeticOperators.kt
+package operatoroverloading
+import atomictest.eq
+
+// Unary operators:
+operator fun E.unaryPlus() = E(v)
+operator fun E.unaryMinus() = E(-v)
+operator fun E.not() = this
+
+// Increment/decrement:
+operator fun E.inc() = E(v + 1)
+operator fun E.dec() = E(v - 1)
+
+fun unary(a: E) {
+  +a               // unaryPlus()
+  -a               // unaryMinus()
+  !a               // not()
+
+  var b = a
+  b++             // inc() (must be var)
+  b--             // dec() (must be var)
+}
+
+// Binary operators:
+operator fun E.plus(e: E) = E(v + e.v)
+operator fun E.minus(e: E) = E(v - e.v)
+operator fun E.times(e: E) = E(v * e.v)
+operator fun E.div(e: E) = E(v % e.v)
+operator fun E.rem(e: E) = E(v / e.v)
+
+fun binary(a: E, b: E) {
+  a + b            // a.plus(b)
+  a - b            // a.minus(b)
+  a * b            // a.times(b)
+  a / b            // a.div(b)
+  a % b            // a.rem(b)
+}
+
+// Augmented assignment:
+operator fun E.plusAssign(e: E) { v += e.v }
+operator fun E.minusAssign(e: E) { v - e.v }
+operator fun E.timesAssign(e: E) { v *= e.v }
+operator fun E.divAssign(e: E) { v /= e.v }
+operator fun E.remAssign(e: E) { v %= e.v }
+
+fun assignment(a: E, b: E) {
+  a += b           // a.plusAssign(b)
+  a -= b           // a.minusAssign(b)
+  a *= b           // a.timesAssign(b)
+  a /= b           // a.divAssign(b)
+  a %= b           // a.remAssign(b)
+}
+
+fun main() {
+  val a = E(2)
+  val b = E(3)
+  a + b eq E(5)
+  a * b eq E(6)
+  val x = E(1)
+  x += b * b
+  x eq E(10)
+}
+</code></pre></div><p>When writing an extension, remember that the properties and functions of the extended type are implicitly available. In the definition of <code>unaryPlus()</code>, for example, the <code>v</code> in <code>E(v)</code> is the <code>v</code> property from the <code>E</code> that’s being extended.</p> <p>Note that <code>x += e</code> can be resolved to either <code>x = x.plus(e)</code> if <code>x</code> is a <code>var</code> or to <code>x.plusAssign(e)</code> if <code>x</code> is <code>val</code> and the corresponding <code>plusAssign()</code> member is available. If both options work, the compiler emits an error indicating that it can’t choose.</p> <p>The parameter can be of a different type than the type the operator extends. Here, the <code>+</code> operator extension for <code>E</code> takes an <code>Int</code> parameter:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/DifferentTypes.kt
+package operatoroverloading
+import atomictest.eq
+
+operator fun E.plus(i: Int) = E(v + i)
+
+fun main() {
+  E(1) + 10 eq E(11)
+}
+</code></pre></div><p>Operator precedence is fixed, and is identical for both built-in types and custom types. For example, multiplication has a higher precedence than addition, and both have higher precedence than equality; thus <code>1 + 2 * 3 == 7</code> is <code>true</code>. You can find the operator precedence table in the <a href="https://kotlinlang.org/docs/reference/grammar.html#expressions" target="_blank" rel="noopener noreferrer">documentation<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</p> <p>Sometimes when you mix arithmetic and programming operators, the result isn’t obvious. Here, we combine <code>+</code> and the Elvis operator:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/ConfusingPrecedence.kt
+package operatoroverloading
+import atomictest.eq
+
+fun main() {
+  val x: Int? = 1
+  val y: Int = 2
+  val sum = x ?: 0 + y
+  sum eq 1
+  (x ?: 0) + y eq 3    // [1]
+  x ?: (0 + y) eq 1    // [2]
+}
+</code></pre></div><p>In <code>sum</code>, <code>+</code> has higher precedence than the Elvis operator <code>?:</code> so the result is <code>1?: (0 + 2) == 1</code>. This might be not what the programmer intended. When mixing different operations where precedence is not obvious, we recommend adding parentheses as in lines <strong>[1]</strong> and <strong>[2]</strong>.</p> <h3 id="comparison"><a href="#comparison" class="header-anchor">#</a> Comparison</h3> <p>All comparison operations <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> are automatically available when you define <code>compareTo()</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Comparison.kt
+package operatoroverloading
+import atomictest.eq
+
+operator fun E.compareTo(e: E): Int =
+  v.compareTo(e.v)
+
+fun main() {
+  val a = E(2)
+  val b = E(3)
+  (a &lt; b) eq true     // a.compareTo(b) &lt; 0
+  (a &gt; b) eq false    // a.compareTo(b) &gt; 0
+  (a &lt;= b) eq true    // a.compareTo(b) &lt;= 0
+  (a &gt;= b) eq false   // a.compareTo(b) &gt;= 0
+}
+</code></pre></div><p><code>compareTo()</code> must return an <code>Int</code> indicating:</p> <ul><li><code>0</code> if the elements are equal.</li> <li>A positive value if the first element (the receiver) is bigger than the second (the argument).</li> <li>A negative value if the first element is smaller than the second.</li></ul> <h3 id="ranges-and-containers"><a href="#ranges-and-containers" class="header-anchor">#</a> Ranges and Containers</h3> <p><code>rangeTo()</code> overloads the <code>..</code> operator for creating ranges, while <code>contains()</code> indicates whether a value is within a range:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Ranges.kt
+package operatoroverloading
+import atomictest.eq
+
+data class R(val r: IntRange) { // Range
+  override fun toString() = &quot;R($r)&quot;
+}
+
+operator fun E.rangeTo(e: E) = R(v..e.v)
+
+operator fun R.contains(e: E): Boolean =
+  e.v in r
+
+fun main() {
+  val a = E(2)
+  val b = E(3)
+  val r = a..b        // a.rangeTo(b)
+  (a in r) eq true    // r.contains(a)
+  (a !in r) eq false  // !r.contains(a)
+  r eq R(2..3)
+}
+</code></pre></div><h3 id="container-access"><a href="#container-access" class="header-anchor">#</a> Container Access</h3> <p>Overloading <code>contains()</code> allows you to check whether a value is <code>in</code> a container, while <code>get()</code> and <code>set()</code> support reading and assigning elements in a container using square brackets:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/ContainerAccess.kt
+package operatoroverloading
+import atomictest.eq
+
+data class C(val c: MutableList&lt;Int&gt;) {
+  override fun toString() = &quot;C($c)&quot;
+}
+
+operator fun C.contains(e: E) = e.v in c
+
+operator fun C.get(i: Int): E = E(c[i])
+
+operator fun C.set(i: Int, e: E) {
+  c[i] = e.v
+}
+
+fun main() {
+  val c = C(mutableListOf(2, 3))
+  (E(2) in c) eq true  // c.contains(E(2))
+  (E(4) in c) eq false // c.contains(E(4))
+  c[1] eq E(3)         // c.get(1)
+  c[1] = E(4)          // c.set(2, E(4))
+  c eq C(mutableListOf(2, 4))
+}
+</code></pre></div><p>In IntelliJ IDEA or Android Studio you can <a href="https://www.jetbrains.com/help/idea/navigating-through-the-source-code.html#go_to_declaration" target="_blank" rel="noopener noreferrer">navigate <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> to a declaration of a function or a class from its usage. This also works with operators: you can put the cursor on <code>..</code> then navigate to its definition to see which operator function is called.</p> <h3 id="invoke"><a href="#invoke" class="header-anchor">#</a> Invoke</h3> <p>Placing parentheses after an object generates a call to <code>invoke()</code>, so the <code>invoke()</code> operator makes an object look like a function. You can define <code>invoke()</code> with any number of parameters:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Invoke.kt
+package operatoroverloading
+import atomictest.eq
+
+class Func {
+  operator fun invoke() = &quot;invoke()&quot;
+  operator fun invoke(i: Int) = &quot;invoke($i)&quot;
+  operator fun invoke(i: Int, j: String) =
+    &quot;invoke($i, $j)&quot;
+  operator fun invoke(
+    i: Int, j: String, k: Double
+  ) = &quot;invoke($i, $j, $k)&quot;
+}
+
+fun main() {
+  val f = Func()
+  f() eq &quot;invoke()&quot;
+  f(22) eq &quot;invoke(22)&quot;
+  f(22, &quot;Hi&quot;) eq &quot;invoke(22, Hi)&quot;
+  f(22, &quot;Three&quot;, 3.1416) eq
+    &quot;invoke(22, Three, 3.1416)&quot;
+}
+</code></pre></div><p>You can also define <code>invoke()</code> with <code>vararg</code> to work with any number of arguments of the same type (see [Variable Argument Lists](javascript:void(0))).</p> <p><code>invoke()</code> can be defined as an extension function. Here, it’s an extension for <code>String</code>, taking a function as a parameter and calling that function on the <code>String</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/StringInvoke.kt
+package operatoroverloading
+import atomictest.eq
+
+operator fun String.invoke(
+  f: (s: String) -&gt; String
+) = f(this)
+
+fun main() {
+  &quot;mumbling&quot; { it.toUpperCase() } eq
+    &quot;MUMBLING&quot;
+}
+</code></pre></div><p>Because the lambda is the final <code>invoke()</code> argument, it can be called without parentheses.</p> <p>If you have a function reference, you can use it to call the function directly using parentheses or via <code>invoke()</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/InvokeFunctionType.kt
+package operatoroverloading
+import atomictest.eq
+
+fun main() {
+  val func: (String) -&gt; Int = { it.length }
+  func(&quot;abc&quot;) eq 3
+  func.invoke(&quot;abc&quot;) eq 3
+
+  val nullableFunc: ((String) -&gt; Int)? = null
+  if (nullableFunc != null) {
+    nullableFunc(&quot;abc&quot;)
+  }
+  nullableFunc?.invoke(&quot;abc&quot;)  // [1]
+}
+</code></pre></div><ul><li><strong>[1]</strong> If a function reference is nullable, you can combine <code>invoke()</code> and safe access.</li></ul> <p>The most common use for a custom <code>invoke()</code> is when creating DSLs.</p> <h3 id="function-names-in-backticks"><a href="#function-names-in-backticks" class="header-anchor">#</a> Function Names in Backticks</h3> <p>Kotlin allows spaces, certain nonstandard characters, and reserved words in a function name by placing that function name inside backticks:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Backticks.kt
+package operatoroverloading
+
+fun `A long name with spaces`() = Unit
+
+fun `*how* is this working?`() = Unit
+
+fun `'when' is a keyword`() = Unit
+
+// fun `Illegal characters :&lt;&gt;`() = Unit
+
+fun main() {
+  `A long name with spaces`()
+  `*how* is this working?`()
+  `'when' is a keyword`()
+}
+</code></pre></div><p>This can be particularly helpful for [Unit Testing](javascript:void(0)) because you can create readable test names that include details about those tests. It also simplifies interactions with Java code.</p> <p>You can easily create incomprehensible code:</p> <div class="language- extra-class"><pre class="language-text"><code>// OperatorOverloading/Swearing.kt
+package operatoroverloading
+import atomictest.eq
+
+infix fun String.`#!%`(s: String) =
+  &quot;$this Rowzafrazaca $s&quot;
+
+fun main() {
+  &quot;howdy&quot; `#!%` &quot;Ma'am!&quot; eq
+    &quot;howdy Rowzafrazaca Ma'am!&quot;
+}
+</code></pre></div><p>Kotlin accepts this code, but what does it mean to the reader? Because code is read much more than it is written, you should make your programs as understandable as possible.</p> <ul><li>-</li></ul> <p>Operator overloading is not an essential feature, but is an excellent example of how a language is more than just a way to manipulate the underlying computer. The challenge is crafting the language to provide better ways to express your abstractions, so humans have an easier time understanding the code without getting bogged down in needless detail. It’s possible to define operators in ways that obscure meaning, so tread carefully.</p> <p><em>Everything is syntactic sugar. Toilet paper is syntactic sugar, and I still want it.</em>—<strong>Barry Hawkins</strong></p> <p><em><strong>Exercises and solutions can be found at www.AtomicKotlin.com.</strong></em></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.885421c5.js" defer></script><script src="/assets/js/2.63033d72.js" defer></script><script src="/assets/js/111.ccb021d8.js" defer></script>
+  </body>
+</html>
